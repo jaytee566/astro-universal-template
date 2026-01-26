@@ -1,0 +1,247 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyMobileCTA from '../components/StickyMobileCTA.astro';
+import { site } from '../config/site';
+
+// ============================================
+// PAGE METADATA
+// ============================================
+const pageData = {
+  metaTitle: `About Us | ${site.businessName} | ${site.city}, ${site.state}`,
+  metaDescription: `Learn about ${site.businessName}, ${site.city}'s trusted ${site.nicheLowercase} company. ${site.yearsInBusiness} years of experience, ${site.reviewCount} five-star reviews. Licensed, insured, and committed to excellence.`,
+};
+
+// ============================================
+// PAGE CONTENT
+// ============================================
+const heroContent = {
+  badge: `About ${site.businessName}`,
+  headline: `Your Trusted ${site.niche} Partner in ${site.city}`,
+  subheadline: `For over ${site.yearsInBusiness} years, we've been helping ${site.city} homeowners and businesses with professional ${site.nicheLowercase}. Our commitment to quality, honesty, and customer satisfaction has made us the area's most trusted choice.`,
+};
+
+const storyContent = {
+  headline: 'Our Story',
+  paragraphs: [
+    `${site.businessName} was founded with a simple mission: provide ${site.city} residents with ${site.nicheLowercase} they can trust. What started as a small operation has grown into one of the area's most respected ${site.nicheLowercase} companies, but our core values remain unchanged.`,
+    `Over the past ${site.yearsInBusiness} years, we've had the privilege of serving thousands of ${site.city} families. Each job—whether big or small—receives the same attention to detail and commitment to excellence. That's why ${site.reviewCount} customers have trusted us with their homes.`,
+    `Today, our team of licensed professionals continues to uphold the standards that built our reputation. We invest in ongoing training, use professional-grade equipment, and stay current with industry best practices. When you choose ${site.businessName}, you're choosing a partner who cares about your property as much as you do.`,
+  ],
+};
+
+const missionContent = {
+  headline: 'Our Mission',
+  statement: `To deliver exceptional ${site.nicheLowercase} that protects what matters most to ${site.city} homeowners—their families, their properties, and their peace of mind.`,
+  values: [
+    { title: 'Quality First', description: 'We never cut corners. Every job is done right, with professional-grade materials and proven techniques.' },
+    { title: 'Honest Service', description: 'Transparent pricing, clear communication, and recommendations based on your needs—not our bottom line.' },
+    { title: 'Customer Focus', description: 'Your satisfaction drives everything we do. We\'re not happy until you are.' },
+    { title: 'Community Commitment', description: `We live and work in ${site.city}. This is our community, and we take pride in serving our neighbors.` },
+  ],
+};
+
+const statsContent = {
+  headline: `Why ${site.city} Trusts Us`,
+  stats: [
+    { number: site.yearsInBusiness, label: 'Years in Business' },
+    { number: site.rating, label: 'Star Rating' },
+    { number: site.reviewCount, label: 'Happy Customers' },
+    { number: '100%', label: 'Satisfaction Goal' },
+  ],
+};
+
+const ctaContent = {
+  headline: 'Ready to Experience the Difference?',
+  subheadline: `Join the thousands of ${site.city} homeowners who trust ${site.businessName} for their ${site.nicheLowercase} needs.`,
+};
+---
+
+<Layout title={pageData.metaTitle} description={pageData.metaDescription}>
+  <div class="bg-white text-gray-700">
+    <Header />
+
+    <!-- ==========================================
+         SECTION 1: HERO
+         ========================================== -->
+    <section class="hero-section py-16 md:py-24">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-600 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+          <span>{heroContent.badge}</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold hero-heading mb-6 leading-tight">
+          {heroContent.headline}
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-xl hero-subheading max-w-3xl mx-auto">
+          {heroContent.subheadline}
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: OUR STORY
+         ========================================== -->
+    <section class="py-16 md:py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8">
+        
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
+          {storyContent.headline}
+        </h2>
+
+        <div class="prose prose-lg max-w-none">
+          {storyContent.paragraphs.map((paragraph) => (
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: OUR MISSION & VALUES
+         ========================================== -->
+    <section class="py-16 md:py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        
+        <!-- Mission Statement -->
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+            {missionContent.headline}
+          </h2>
+          <p class="text-2xl text-primary-600 font-medium max-w-3xl mx-auto italic">
+            "{missionContent.statement}"
+          </p>
+        </div>
+
+        <!-- Values Grid -->
+        <div class="grid md:grid-cols-2 gap-8">
+          {missionContent.values.map((value) => (
+            <div class="bg-white rounded-2xl p-8 border border-gray-200">
+              <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+              <p class="text-gray-600">{value.description}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: STATS / WHY TRUST US
+         ========================================== -->
+    <section class="py-16 md:py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center">
+          {statsContent.headline}
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {statsContent.stats.map((stat) => (
+            <div class="text-center">
+              <div class="text-4xl sm:text-5xl font-bold text-primary-600 mb-2">
+                {stat.number}
+              </div>
+              <div class="text-gray-600 font-medium">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="flex flex-wrap justify-center gap-8 mt-12 pt-12 border-t border-gray-200">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-bold text-gray-900">Licensed & Insured</div>
+              <div class="text-sm text-gray-500">Full coverage in {site.state}</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-bold text-gray-900">Satisfaction Guaranteed</div>
+              <div class="text-sm text-gray-500">We stand behind our work</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-bold text-gray-900">Locally Owned</div>
+              <div class="text-sm text-gray-500">Proudly serving {site.city}</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: FINAL CTA
+         ========================================== -->
+    <section class="py-16 md:py-24 bg-gray-900">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+        
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+          {ctaContent.headline}
+        </h2>
+        <p class="text-xl text-gray-300 mb-8">
+          {ctaContent.subheadline}
+        </p>
+
+        <!-- Phone Button -->
+        <a 
+          href={`tel:${site.phoneLink}`}
+          class="inline-flex items-center gap-3 bg-accent-600 hover:bg-accent-700 text-white font-bold text-2xl px-10 py-6 rounded-2xl transition-colors btn-cta"
+        >
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          <span>{site.phone}</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Footer - Static pages CAN show Service Areas -->
+    <Footer hideServiceAreas={false} />
+    
+    <!-- Mobile Sticky CTA -->
+    <StickyMobileCTA />
+
+  </div>
+</Layout>

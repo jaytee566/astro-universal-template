@@ -1,0 +1,699 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import StickyMobileCTA from '../../components/StickyMobileCTA.astro';
+import { site } from '../../config/site';
+
+// ============================================
+// STATIC PATHS - Generate Support pages
+// Route: /[service-slug]/[support-slug]
+// Example: /general-maintenance/complete-guide
+// ============================================
+export async function getStaticPaths() {
+  // Services with their support articles
+  const services = [
+    {
+      slug: 'general-maintenance',
+      name: 'General Maintenance',
+      supportArticles: [
+        { 
+          slug: 'complete-guide', 
+          title: 'Complete Guide to General Maintenance',
+          description: 'Everything you need to know about keeping your property in top condition.',
+          content: [
+            {
+              heading: 'Why Regular Maintenance Matters',
+              paragraphs: [
+                'Regular maintenance is the key to protecting your property investment and avoiding costly emergency repairs. When you stay ahead of small issues, you prevent them from becoming major problems that disrupt your life and drain your wallet.',
+                'Professional maintenance goes beyond what most homeowners can do themselves. Our trained technicians have the expertise to spot early warning signs, use professional-grade tools, and apply solutions that last.',
+              ],
+            },
+            {
+              heading: 'What Does General Maintenance Include?',
+              paragraphs: [
+                'A comprehensive maintenance program covers all the critical systems in your home. This includes routine inspections, preventive treatments, cleaning, adjustments, and minor repairs that keep everything running smoothly.',
+                'The specific services depend on your property type, age, and location. We customize our approach to address the unique needs of your home while following industry best practices.',
+              ],
+            },
+            {
+              heading: 'How Often Should You Schedule Maintenance?',
+              paragraphs: [
+                'Most properties benefit from quarterly maintenance visits, with additional seasonal services as needed. However, the ideal schedule depends on factors like the age of your home, local climate conditions, and the specific systems installed.',
+                'During your initial consultation, we\'ll assess your property and recommend a maintenance schedule that provides optimal protection without unnecessary visits.',
+              ],
+            },
+            {
+              heading: 'Signs You Need Professional Maintenance',
+              paragraphs: [
+                'Don\'t wait for obvious problems to appear. If you notice unusual sounds, reduced efficiency, higher utility bills, or anything that seems "off," it\'s time to call a professional. These early warning signs often indicate issues that are easy and affordable to fix now but expensive to repair later.',
+                'Even if everything seems fine, regular professional inspections catch hidden problems that you can\'t see. Think of it like a health checkup for your home.',
+              ],
+            },
+          ],
+        },
+        { 
+          slug: 'cost-factors', 
+          title: 'General Maintenance Cost Factors',
+          description: 'Understanding what affects the price of professional maintenance services.',
+          content: [
+            {
+              heading: 'What Determines Maintenance Costs?',
+              paragraphs: [
+                'The cost of professional maintenance varies based on several factors specific to your property and needs. Understanding these factors helps you budget appropriately and make informed decisions about your home care.',
+                'At our company, we believe in transparent pricing. We\'ll explain exactly what affects your quote and why, so there are never any surprises.',
+              ],
+            },
+            {
+              heading: 'Property Size and Complexity',
+              paragraphs: [
+                'Larger properties naturally require more time and resources to maintain properly. A 3,000 square foot home has more to inspect, clean, and service than a 1,500 square foot condo.',
+                'The complexity of your property also matters. Homes with multiple systems, specialty features, or challenging access points may require additional expertise and time.',
+              ],
+            },
+            {
+              heading: 'Current Condition',
+              paragraphs: [
+                'Properties that have been regularly maintained are easier and less expensive to keep in good condition. If maintenance has been deferred, the initial service may cost more to address accumulated issues.',
+                'The good news: once you\'re on a regular maintenance schedule, costs typically decrease and stabilize because we\'re preventing problems rather than fixing them.',
+              ],
+            },
+            {
+              heading: 'Getting the Best Value',
+              paragraphs: [
+                'The most cost-effective approach is preventive maintenance. Regular service costs a fraction of emergency repairs and extends the life of your home\'s systems.',
+                'We offer maintenance plans that bundle services at a discounted rate. These plans also include priority scheduling and other benefits that add value beyond the cost savings.',
+              ],
+            },
+          ],
+        },
+        { 
+          slug: 'diy-vs-professional', 
+          title: 'DIY vs Professional Maintenance',
+          description: 'When to handle maintenance yourself and when to call the experts.',
+          content: [
+            {
+              heading: 'The DIY Temptation',
+              paragraphs: [
+                'With countless YouTube tutorials and home improvement shows, it\'s tempting to handle all maintenance yourself. Some tasks are indeed appropriate for handy homeowners—but others require professional expertise.',
+                'The key is knowing the difference. Getting it wrong can cost more than hiring a professional in the first place.',
+              ],
+            },
+            {
+              heading: 'Tasks Suitable for DIY',
+              paragraphs: [
+                'Simple tasks like changing air filters, cleaning gutters (if you\'re comfortable on a ladder), testing smoke detectors, and basic cleaning are generally safe for homeowners to handle.',
+                'These routine tasks don\'t require specialized tools or training, and the risk of causing damage is minimal.',
+              ],
+            },
+            {
+              heading: 'When to Call a Professional',
+              paragraphs: [
+                'Any task involving electrical systems, gas lines, structural components, or complex mechanical systems should be left to licensed professionals. The risk of injury, property damage, or code violations is simply too high.',
+                'Professional maintenance also makes sense when you lack the time, tools, or physical ability to do the job properly. A half-done maintenance task can be worse than no maintenance at all.',
+              ],
+            },
+            {
+              heading: 'The Hidden Costs of DIY',
+              paragraphs: [
+                'Consider the true cost of DIY: your time, the tools you need to buy, the risk of mistakes, and the lack of warranty coverage. When you factor everything in, professional service is often the better value.',
+                'Plus, professionals spot problems you might miss. That early detection alone can save thousands in prevented repairs.',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      slug: 'emergency-repair',
+      name: 'Emergency Repair',
+      supportArticles: [
+        { 
+          slug: 'what-to-do-first', 
+          title: 'What To Do First in an Emergency',
+          description: 'Critical steps to take when disaster strikes your home.',
+          content: [
+            {
+              heading: 'Stay Calm and Assess',
+              paragraphs: [
+                'When an emergency happens, your first instinct might be to panic. Take a deep breath. A clear head helps you make better decisions and take the right actions to minimize damage.',
+                'Quickly assess the situation: Is anyone in danger? Is the problem getting worse? What can you safely do right now?',
+              ],
+            },
+            {
+              heading: 'Ensure Safety First',
+              paragraphs: [
+                'Before anything else, make sure everyone in the home is safe. If there\'s any risk of electrical shock, gas leak, or structural collapse, evacuate immediately and call emergency services.',
+                'Never put yourself in danger to protect property. Things can be replaced—you can\'t.',
+              ],
+            },
+            {
+              heading: 'Stop the Source If Safe',
+              paragraphs: [
+                'If you can safely stop or reduce the problem, do so. Know where your main water shut-off, electrical panel, and gas valve are located. These few seconds can prevent thousands in additional damage.',
+                'Don\'t attempt any repairs yourself in an emergency situation. Focus only on stopping the immediate source of damage.',
+              ],
+            },
+            {
+              heading: 'Call for Professional Help',
+              paragraphs: [
+                'Once you\'ve ensured safety and stopped what you can, call a professional immediately. The faster help arrives, the less damage occurs.',
+                'Have your address ready, describe the situation clearly, and follow any instructions the dispatcher gives you while you wait.',
+              ],
+            },
+          ],
+        },
+        { 
+          slug: 'emergency-costs', 
+          title: 'Understanding Emergency Repair Costs',
+          description: 'What to expect when paying for emergency services.',
+          content: [
+            {
+              heading: 'Why Emergency Services Cost More',
+              paragraphs: [
+                'Emergency services typically cost more than scheduled appointments. This reflects the immediate response, after-hours availability, and the priority given to your situation.',
+                'While the higher cost might seem frustrating, remember that fast response minimizes total damage—often saving you money overall.',
+              ],
+            },
+            {
+              heading: 'Factors Affecting Emergency Costs',
+              paragraphs: [
+                'Several factors affect your final bill: the time of day (after-hours calls may have premium rates), the severity of the problem, materials needed, and the extent of repairs required.',
+                'We always provide an estimate before beginning work so you can make an informed decision.',
+              ],
+            },
+            {
+              heading: 'Insurance Considerations',
+              paragraphs: [
+                'Many emergency repairs are covered by homeowner\'s insurance. We can help document the damage and work with your insurance company to streamline the claims process.',
+                'Keep records of everything: photos, receipts, and communication with contractors and insurance adjusters.',
+              ],
+            },
+            {
+              heading: 'Preventing Future Emergencies',
+              paragraphs: [
+                'The best way to avoid emergency repair costs is prevention. Regular maintenance catches small problems before they become emergencies.',
+                'Ask us about our maintenance plans that include priority emergency service at reduced rates.',
+              ],
+            },
+          ],
+        },
+        { 
+          slug: 'prevention-tips', 
+          title: 'How to Prevent Common Emergencies',
+          description: 'Proactive steps to protect your home from disaster.',
+          content: [
+            {
+              heading: 'Prevention is the Best Protection',
+              paragraphs: [
+                'Most home emergencies are preventable. With regular attention and maintenance, you can avoid the stress, expense, and disruption of emergency situations.',
+                'The investment in prevention always costs less than the emergency it prevents.',
+              ],
+            },
+            {
+              heading: 'Regular Inspections',
+              paragraphs: [
+                'Schedule professional inspections at least annually. Trained eyes catch problems you\'d never notice—small issues that become emergencies if ignored.',
+                'Between professional visits, do your own visual checks. Look for anything unusual: stains, sounds, smells, or changes in performance.',
+              ],
+            },
+            {
+              heading: 'Address Small Problems Immediately',
+              paragraphs: [
+                'That small leak or strange noise isn\'t going to fix itself. In fact, it\'s getting worse every day you ignore it.',
+                'When you notice something wrong, call a professional promptly. Early intervention is always cheaper than emergency repair.',
+              ],
+            },
+            {
+              heading: 'Know Your Home\'s Systems',
+              paragraphs: [
+                'Understand where your shut-offs are located, how old your major systems are, and what maintenance they need. This knowledge helps you prevent problems and respond quickly when they occur.',
+                'Keep documentation of all maintenance, repairs, and installations. This history helps professionals diagnose issues faster.',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      slug: 'installation',
+      name: 'Installation Services',
+      supportArticles: [
+        { 
+          slug: 'choosing-the-right-system', 
+          title: 'Choosing the Right System for Your Home',
+          description: 'How to select equipment that fits your needs and budget.',
+          content: [
+            {
+              heading: 'Making the Right Choice',
+              paragraphs: [
+                'Selecting new equipment or systems for your home is a significant decision. The right choice provides years of reliable service; the wrong one creates ongoing frustration and expense.',
+                'We help you navigate the options to find solutions that match your needs, preferences, and budget.',
+              ],
+            },
+            {
+              heading: 'Assess Your Needs',
+              paragraphs: [
+                'Before looking at specific products, clearly define what you need. Consider your home\'s size, your family\'s usage patterns, efficiency goals, and any specific requirements.',
+                'A professional assessment ensures you don\'t over-buy features you\'ll never use or under-buy and regret it later.',
+              ],
+            },
+            {
+              heading: 'Quality vs. Price',
+              paragraphs: [
+                'The cheapest option rarely provides the best value. Quality equipment costs more upfront but delivers lower operating costs, fewer repairs, and longer life.',
+                'We\'ll show you the total cost of ownership so you can make an informed decision based on long-term value, not just purchase price.',
+              ],
+            },
+            {
+              heading: 'Professional Guidance',
+              paragraphs: [
+                'Don\'t navigate this decision alone. Our experts stay current on all the options and can recommend solutions based on real-world experience.',
+                'We\'ll explain the pros and cons of each option honestly—even if that means recommending a less expensive choice.',
+              ],
+            },
+          ],
+        },
+        { 
+          slug: 'installation-process', 
+          title: 'What to Expect During Installation',
+          description: 'A step-by-step guide to professional installation.',
+          content: [
+            {
+              heading: 'Before Installation Day',
+              paragraphs: [
+                'Proper installation starts before our team arrives. We\'ll confirm all details, verify measurements, and ensure equipment is ordered and ready.',
+                'You\'ll receive clear instructions on how to prepare your space and what to expect.',
+              ],
+            },
+            {
+              heading: 'Installation Day',
+              paragraphs: [
+                'Our team arrives on time with everything needed to complete the job. We protect your home with drop cloths and take care to minimize disruption.',
+                'The installation itself follows manufacturer specifications and local codes precisely. We never cut corners.',
+              ],
+            },
+            {
+              heading: 'Quality Verification',
+              paragraphs: [
+                'Before we leave, we thoroughly test everything to ensure proper operation. We\'ll walk you through how to use and maintain your new system.',
+                'Any questions you have, we answer them before we go.',
+              ],
+            },
+            {
+              heading: 'After Installation',
+              paragraphs: [
+                'Our job isn\'t done when we leave. We follow up to make sure everything is working perfectly and you\'re completely satisfied.',
+                'We\'re always available if questions come up later. Your success with your new system is our success.',
+              ],
+            },
+          ],
+        },
+        { 
+          slug: 'warranty-coverage', 
+          title: 'Understanding Your Warranty Coverage',
+          description: 'What\'s covered, what\'s not, and how to protect your investment.',
+          content: [
+            {
+              heading: 'Types of Warranties',
+              paragraphs: [
+                'Your new equipment typically comes with multiple warranties: manufacturer warranties on parts, contractor warranties on labor, and possibly extended warranty options.',
+                'Understanding each type helps you know what\'s covered and who to call if problems arise.',
+              ],
+            },
+            {
+              heading: 'What Voids a Warranty',
+              paragraphs: [
+                'Warranties have conditions. Improper installation, lack of maintenance, unauthorized modifications, or DIY repairs can all void your coverage.',
+                'This is why professional installation and regular maintenance are so important—they protect your warranty.',
+              ],
+            },
+            {
+              heading: 'Keeping Warranty Documentation',
+              paragraphs: [
+                'Save all warranty documents, receipts, and maintenance records. If you ever need warranty service, you\'ll need to prove purchase date and show maintenance history.',
+                'We provide all documentation at installation and can help you set up a system to keep it organized.',
+              ],
+            },
+            {
+              heading: 'Extended Warranty Options',
+              paragraphs: [
+                'Extended warranties provide additional peace of mind beyond the standard coverage period. We can explain available options and help you decide if they\'re worth the investment for your situation.',
+                'For complex or expensive systems, extended coverage is often a smart choice.',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ];
+
+  // Generate all support article pages
+  const paths = [];
+  
+  for (const service of services) {
+    const articles = service.supportArticles;
+    
+    for (let i = 0; i < articles.length; i++) {
+      const article = articles[i];
+      const prevArticle = i > 0 ? articles[i - 1] : null;
+      const nextArticle = i < articles.length - 1 ? articles[i + 1] : null;
+      
+      paths.push({
+        params: { 
+          serviceSlug: service.slug,
+          supportSlug: article.slug,
+        },
+        props: {
+          service,
+          article,
+          prevArticle,
+          nextArticle,
+          siloOrder: i + 1,
+          totalArticles: articles.length,
+        },
+      });
+    }
+  }
+
+  return paths;
+}
+
+// ============================================
+// PAGE PROPS
+// ============================================
+const { service, article, prevArticle, nextArticle, siloOrder, totalArticles } = Astro.props;
+
+// ============================================
+// CRITICAL: Exact-match anchor text for linking UP to Silo Head
+// This MUST match the siloHeadAnchor in the Silo Head page
+// ============================================
+const siloHeadAnchor = `${service.name} ${site.city} ${site.state}`;
+const siloHeadUrl = `/${service.slug}-${site.citySlug}`;
+// Example anchor: "General Maintenance Austin TX"
+// Example URL: "/general-maintenance-austin"
+
+// ============================================
+// PAGE METADATA
+// ============================================
+const pageData = {
+  metaTitle: `${article.title} | ${service.name} in ${site.city} | ${site.businessName}`,
+  metaDescription: `${article.description} Expert ${service.name.toLowerCase()} information from ${site.businessName} in ${site.city}, ${site.state}.`,
+};
+
+// ============================================
+// CONTENT
+// ============================================
+const heroContent = {
+  badge: `${service.name} Guide`,
+  headline: article.title,
+  description: article.description,
+};
+
+const ctaContent = {
+  headline: `Need Professional ${service.name}?`,
+  subheadline: `Our ${site.city} experts are ready to help. Call today for a free estimate.`,
+};
+---
+
+<Layout title={pageData.metaTitle} description={pageData.metaDescription}>
+  <div class="bg-white text-gray-700">
+    <Header />
+
+    <!-- ==========================================
+         BREADCRUMB - Link UP to Silo Head with EXACT-MATCH ANCHOR
+         This is CRITICAL for Kyle Roof SEO methodology
+         ========================================== -->
+    <nav class="bg-gray-50 border-b border-gray-200">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
+        <a 
+          href={siloHeadUrl}
+          class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          <!-- EXACT-MATCH ANCHOR TEXT - Critical for SEO -->
+          <span>{siloHeadAnchor}</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- ==========================================
+         SECTION 1: HERO
+         ========================================== -->
+    <section class="hero-section py-12 md:py-16">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8">
+        
+        <!-- Article Badge -->
+        <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-600 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>{heroContent.badge}</span>
+        </div>
+
+        <!-- H1 -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold hero-heading mb-6 leading-tight">
+          {heroContent.headline}
+        </h1>
+
+        <!-- Description -->
+        <p class="text-xl hero-subheading mb-8">
+          {heroContent.description}
+        </p>
+
+        <!-- Article Meta -->
+        <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            <span>{site.businessName}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>{site.city}, {site.state}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>Article {siloOrder} of {totalArticles}</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: ARTICLE BODY
+         ========================================== -->
+    <section class="py-12 md:py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8">
+        
+        <article class="prose prose-lg max-w-none">
+          {article.content.map((section) => (
+            <div class="mb-12">
+              <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                {section.heading}
+              </h2>
+              {section.paragraphs.map((paragraph) => (
+                <p class="text-gray-600 mb-4 text-lg leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          ))}
+        </article>
+
+        <!-- Inline CTA -->
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 mt-12">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Need Help with {service.name}?
+              </h3>
+              <p class="text-gray-600">
+                Our {site.city} experts are ready to assist you.
+              </p>
+            </div>
+            <a 
+              href={`tel:${site.phoneLink}`}
+              class="inline-flex items-center justify-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-bold px-6 py-3 rounded-xl transition-colors btn-cta whitespace-nowrap"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span>Call {site.phone}</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: RELATED ARTICLES (Prev/Next in Silo)
+         ONLY lateral links to other Support articles in SAME silo
+         ========================================== -->
+    <section class="py-12 md:py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8">
+        
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+          Continue Reading
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          
+          <!-- Previous Article -->
+          {prevArticle ? (
+            <a 
+              href={`/${service.slug}/${prevArticle.slug}`}
+              class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all group"
+            >
+              <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                <span>Previous Article</span>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+                {prevArticle.title}
+              </h3>
+            </a>
+          ) : (
+            <div class="bg-gray-100 rounded-2xl p-6 border border-gray-200 opacity-50">
+              <div class="flex items-center gap-2 text-sm text-gray-400 mb-3">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                <span>Previous Article</span>
+              </div>
+              <p class="text-gray-400">You're at the first article</p>
+            </div>
+          )}
+
+          <!-- Next Article -->
+          {nextArticle ? (
+            <a 
+              href={`/${service.slug}/${nextArticle.slug}`}
+              class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all group"
+            >
+              <div class="flex items-center justify-end gap-2 text-sm text-gray-500 mb-3">
+                <span>Next Article</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary-600 transition-colors text-right">
+                {nextArticle.title}
+              </h3>
+            </a>
+          ) : (
+            <div class="bg-gray-100 rounded-2xl p-6 border border-gray-200 opacity-50">
+              <div class="flex items-center justify-end gap-2 text-sm text-gray-400 mb-3">
+                <span>Next Article</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <p class="text-gray-400 text-right">You're at the last article</p>
+            </div>
+          )}
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: CTA BACK TO SILO HEAD
+         Uses EXACT-MATCH anchor text
+         ========================================== -->
+    <section class="py-12 md:py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8">
+        
+        <div class="bg-primary-600 rounded-2xl p-8 md:p-12 text-center">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Ready for Professional {service.name}?
+          </h2>
+          <p class="text-primary-100 mb-8 text-lg max-w-2xl mx-auto">
+            Now that you understand {article.title.toLowerCase()}, let our {site.city} experts put that knowledge to work for you.
+          </p>
+          
+          <!-- CTA with EXACT-MATCH anchor to Silo Head -->
+          <a 
+            href={siloHeadUrl}
+            class="inline-flex items-center gap-2 bg-white text-primary-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors text-lg"
+          >
+            <span>{siloHeadAnchor}</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: FINAL CTA
+         ========================================== -->
+    <section class="py-12 md:py-16 bg-gray-900">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+        
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+          {ctaContent.headline}
+        </h2>
+        <p class="text-lg text-gray-300 mb-8">
+          {ctaContent.subheadline}
+        </p>
+
+        <!-- Phone Button -->
+        <a 
+          href={`tel:${site.phoneLink}`}
+          class="inline-flex items-center gap-3 bg-accent-600 hover:bg-accent-700 text-white font-bold text-xl px-8 py-5 rounded-2xl transition-colors btn-cta"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          <span>{site.phone}</span>
+        </a>
+
+        <!-- Trust Badges -->
+        <div class="flex flex-wrap justify-center gap-6 mt-8 text-gray-400 text-sm">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Free Estimates</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Licensed & Insured</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{site.rating}-Star Rated</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer - Hide Service Areas (Kyle Roof: Support cannot link to neighborhoods) -->
+    <Footer hideServiceAreas={true} />
+    
+    <!-- Mobile Sticky CTA -->
+    <StickyMobileCTA />
+
+  </div>
+</Layout>
