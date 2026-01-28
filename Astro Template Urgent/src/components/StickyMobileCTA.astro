@@ -1,0 +1,24 @@
+---
+import { site } from '../config/site';
+---
+
+<!-- Spacer to prevent content overlap - 68px for mobile CTA -->
+<div class="h-[68px] md:hidden" aria-hidden="true"></div>
+
+<!-- Sticky Mobile CTA Bar - URGENT EMERGENCY with Glow -->
+<div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-accent-600 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] cta-glow-button">
+  <!-- Main Call Button - Full width, prominent -->
+  <a
+    href={`tel:${site.phoneLink}`}
+    class="flex items-center justify-center gap-3 active:bg-accent-700 transition-colors px-4"
+    style="height: 68px;"
+  >
+    <!-- Lightning Icon -->
+    <span class="text-2xl flex-shrink-0">⚡</span>
+
+    <!-- CTA Text - Single line -->
+    <span class="text-white font-black text-base whitespace-nowrap">
+      EMERGENCY — Call Now {site.phone}
+    </span>
+  </a>
+</div>

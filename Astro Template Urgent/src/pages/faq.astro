@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import StickyMobileCTA from '../components/StickyMobileCTA.astro';
+import { site } from '../config/site';
+
+// ============================================
+// PAGE METADATA
+// ============================================
+const pageData = {
+  metaTitle: `FAQ | ${site.businessName} | ${site.city}, ${site.state}`,
+  metaDescription: `Frequently asked questions about ${site.businessName}'s ${site.nicheLowercase} services in ${site.city}. Learn about scheduling, pricing, service areas, and more.`,
+};
+
+// ============================================
+// PAGE CONTENT
+// ============================================
+const heroContent = {
+  badge: 'Have Questions?',
+  headline: 'Frequently Asked Questions',
+  subheadline: `Get answers to common questions about ${site.businessName} and our ${site.nicheLowercase} services in ${site.city}.`,
+};
+
+// General FAQs (not service-specific)
+const faqs = [
+  {
+    q: `What areas does ${site.businessName} serve?`,
+    a: `We proudly serve ${site.city} and the surrounding ${site.serviceArea} area. If you're not sure whether we service your location, give us a call at ${site.phone} and we'll be happy to confirm.`,
+  },
+  {
+    q: `How do I schedule an appointment?`,
+    a: `Scheduling is easy! You can call us at ${site.phone}, fill out our online contact form, or send us a text message. We'll work with your schedule to find a convenient time.`,
+  },
+  {
+    q: `Do you offer free estimates?`,
+    a: `Yes! We provide free, no-obligation estimates for most ${site.nicheLowercase} services. Our technician will assess your needs and provide a detailed quote before any work begins.`,
+  },
+  {
+    q: `Are you licensed and insured?`,
+    a: `Absolutely. ${site.businessName} is fully licensed and insured in ${site.state}. We carry comprehensive liability coverage and workers' compensation insurance to protect you and your property.`,
+  },
+  {
+    q: `What forms of payment do you accept?`,
+    a: `We accept all major credit cards, debit cards, checks, and cash. For larger projects, we may also offer financing options. Payment is due upon completion of work unless other arrangements are made.`,
+  },
+  {
+    q: `Do you offer any guarantees?`,
+    a: `Yes! All work performed by ${site.businessName} is backed by our satisfaction guarantee. If you're not happy with our work, we'll make it right. We also honor all manufacturer warranties on equipment and materials.`,
+  },
+  {
+    q: `How quickly can you respond to service requests?`,
+    a: `We strive to respond to all inquiries within 24 hours. For most services, we can schedule an appointment within a few days. Emergency services are available with faster response times.`,
+  },
+  {
+    q: `Do I need to be home during the service?`,
+    a: `We prefer that a homeowner or authorized adult be present during the initial assessment. For return visits or ongoing work, we can make arrangements that work for your schedule.`,
+  },
+  {
+    q: `What should I do to prepare for my appointment?`,
+    a: `We'll provide specific preparation instructions when scheduling your appointment. Generally, just ensure the service area is accessible and let us know of any pets that may need to be secured.`,
+  },
+  {
+    q: `How can I leave a review?`,
+    a: `We appreciate your feedback! After your service is complete, we'll send you a link to leave a review. You can also find us on Google, Yelp, and other review platforms. Your reviews help other ${site.city} homeowners find quality service.`,
+  },
+];
+
+const ctaContent = {
+  headline: 'Still Have Questions?',
+  subheadline: `Our friendly team is here to help. Give us a call and we'll answer any questions you have.`,
+};
+---
+
+<Layout title={pageData.metaTitle} description={pageData.metaDescription}>
+  <div class="bg-white text-gray-700">
+
+    <!-- ==========================================
+         SECTION 1: HERO
+         ========================================== -->
+    <section class="hero-section py-16 md:py-20">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-600 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>{heroContent.badge}</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold hero-heading mb-6 leading-tight">
+          {heroContent.headline}
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-xl hero-subheading max-w-2xl mx-auto">
+          {heroContent.subheadline}
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: FAQ ACCORDION
+         ========================================== -->
+    <section class="py-16 md:py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-5 sm:px-8">
+        
+        <div class="space-y-0">
+          {faqs.map((faq, index) => (
+            <details 
+              class="group border-b border-gray-200" 
+              open={index === 0}
+            >
+              <summary class="flex items-center justify-between py-6 cursor-pointer">
+                <span class="font-bold text-gray-900 text-lg pr-4">{faq.q}</span>
+                <svg class="w-5 h-5 text-gray-500 flex-shrink-0 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="text-gray-600 pb-6 pr-8 leading-relaxed">
+                {faq.a}
+              </p>
+            </details>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: CONTACT CARD
+         ========================================== -->
+    <section class="py-16 md:py-20 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8">
+        
+        <div class="bg-white rounded-2xl p-8 md:p-12 border border-gray-200 text-center">
+          <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+            Can't Find Your Answer?
+          </h2>
+          <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+            Our team is happy to help with any questions about our {site.nicheLowercase} services in {site.city}.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href={`tel:${site.phoneLink}`}
+              class="inline-flex items-center justify-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-bold px-8 py-4 rounded-xl transition-colors btn-cta"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span>Call {site.phone}</span>
+            </a>
+            <a 
+              href="/contact"
+              class="inline-flex items-center justify-center gap-2 bg-white border-2 border-gray-300 hover:border-gray-400 text-gray-700 font-bold px-8 py-4 rounded-xl transition-colors"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span>Send a Message</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: FINAL CTA
+         ========================================== -->
+    <section class="py-16 md:py-20 bg-gray-900">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+        
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+          {ctaContent.headline}
+        </h2>
+        <p class="text-xl text-gray-300 mb-8">
+          {ctaContent.subheadline}
+        </p>
+
+        <!-- Phone Button -->
+        <a 
+          href={`tel:${site.phoneLink}`}
+          class="inline-flex items-center gap-3 bg-accent-600 hover:bg-accent-700 text-white font-bold text-2xl px-10 py-6 rounded-2xl transition-colors btn-cta"
+        >
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          <span>{site.phone}</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Footer - Static pages CAN show Service Areas -->
+    <Footer hideServiceAreas={false} />
+    
+    <!-- Mobile Sticky CTA -->
+    <StickyMobileCTA />
+
+  </div>
+</Layout>
