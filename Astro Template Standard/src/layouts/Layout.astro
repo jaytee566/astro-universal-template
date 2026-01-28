@@ -1,0 +1,370 @@
+---
+import { site } from '../config/site';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+}
+
+const { title, description, canonicalUrl } = Astro.props;
+const theme = site.theme;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Schema Markup - LocalBusiness -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": site.businessName,
+      "description": description,
+      "telephone": site.phone,
+      "email": site.email,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": site.city,
+        "addressRegion": site.state,
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": site.city,
+        "sameAs": `https://en.wikipedia.org/wiki/${site.city},_${site.stateFullName}`
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": site.rating,
+        "reviewCount": site.reviewCount.replace('+', '')
+      },
+      "priceRange": "$$"
+    })} />
+  </head>
+  <body data-theme={theme} class="min-h-screen bg-white text-gray-700 font-sans antialiased">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* ========================================
+     FONT SYSTEM
+     ======================================== */
+  :root {
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+
+  /* ========================================
+     THEME: URGENT
+     Emergency services - dark hero, green primary, red accent
+     Use for: Water damage, fire restoration, mold removal
+     ======================================== */
+  body[data-theme="urgent"] {
+    --hero-bg: #111827;
+    --hero-text: #ffffff;
+    --hero-subtext: #d1d5db;
+    --color-primary-50: 240 253 244;
+    --color-primary-100: 220 252 231;
+    --color-primary-200: 187 247 208;
+    --color-primary-300: 134 239 172;
+    --color-primary-400: 74 222 128;
+    --color-primary-500: 34 197 94;
+    --color-primary-600: 22 163 74;
+    --color-primary-700: 21 128 61;
+    --color-primary-800: 22 101 52;
+    --color-primary-900: 20 83 45;
+    --color-accent-50: 254 242 242;
+    --color-accent-100: 254 226 226;
+    --color-accent-200: 254 202 202;
+    --color-accent-300: 252 165 165;
+    --color-accent-400: 248 113 113;
+    --color-accent-500: 239 68 68;
+    --color-accent-600: 220 38 38;
+    --color-accent-700: 185 28 28;
+    --color-accent-800: 153 27 27;
+    --color-accent-900: 127 29 29;
+  }
+
+  /* ========================================
+     THEME: PREMIUM
+     High-end services - light cream hero, navy primary, gold accent
+     Use for: Remodeling, landscaping design, custom builds
+     ======================================== */
+  body[data-theme="premium"] {
+    --hero-bg: linear-gradient(135deg, #f8f6f2 0%, #ffffff 100%);
+    --hero-text: #1a2f47;
+    --hero-subtext: #4a5568;
+    --color-primary-50: 240 249 255;
+    --color-primary-100: 224 242 254;
+    --color-primary-200: 186 230 253;
+    --color-primary-300: 125 211 252;
+    --color-primary-400: 56 189 248;
+    --color-primary-500: 14 165 233;
+    --color-primary-600: 30 58 90;
+    --color-primary-700: 21 42 66;
+    --color-primary-800: 15 32 51;
+    --color-primary-900: 12 27 42;
+    --color-accent-50: 254 252 232;
+    --color-accent-100: 254 249 195;
+    --color-accent-200: 254 240 138;
+    --color-accent-300: 253 224 71;
+    --color-accent-400: 250 204 21;
+    --color-accent-500: 234 179 8;
+    --color-accent-600: 212 160 60;
+    --color-accent-700: 184 134 46;
+    --color-accent-800: 146 107 37;
+    --color-accent-900: 120 88 30;
+  }
+
+  /* ========================================
+     THEME: STANDARD
+     Professional and trustworthy - light gradient hero, blue primary, orange accent
+     Use for: Cleaning, handyman, lawn care, general maintenance
+     ======================================== */
+  body[data-theme="standard"] {
+    --hero-bg: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+    --hero-text: #111827;
+    --hero-subtext: #4b5563;
+    --color-primary-50: 239 246 255;
+    --color-primary-100: 219 234 254;
+    --color-primary-200: 191 219 254;
+    --color-primary-300: 147 197 253;
+    --color-primary-400: 96 165 250;
+    --color-primary-500: 59 130 246;
+    --color-primary-600: 37 99 235;
+    --color-primary-700: 29 78 216;
+    --color-primary-800: 30 64 175;
+    --color-primary-900: 30 58 138;
+    --color-accent-50: 255 247 237;
+    --color-accent-100: 255 237 213;
+    --color-accent-200: 254 215 170;
+    --color-accent-300: 253 186 116;
+    --color-accent-400: 251 146 60;
+    --color-accent-500: 249 115 22;
+    --color-accent-600: 234 88 12;
+    --color-accent-700: 194 65 12;
+    --color-accent-800: 154 52 18;
+    --color-accent-900: 124 45 18;
+  }
+
+  /* ========================================
+     THEME: TECHNICAL
+     Specialized services - white hero, blue primary, slate accent
+     Use for: HVAC, electrical, plumbing, appliance repair
+     ======================================== */
+  body[data-theme="technical"] {
+    --hero-bg: #ffffff;
+    --hero-text: #0f172a;
+    --hero-subtext: #475569;
+    --color-primary-50: 240 249 255;
+    --color-primary-100: 224 242 254;
+    --color-primary-200: 186 230 253;
+    --color-primary-300: 125 211 252;
+    --color-primary-400: 14 165 233;
+    --color-primary-500: 6 182 212;
+    --color-primary-600: 3 105 161;
+    --color-primary-700: 7 89 133;
+    --color-primary-800: 12 74 110;
+    --color-primary-900: 8 51 68;
+    --color-accent-50: 248 250 252;
+    --color-accent-100: 241 245 249;
+    --color-accent-200: 226 232 240;
+    --color-accent-300: 203 213 225;
+    --color-accent-400: 148 163 184;
+    --color-accent-500: 100 116 139;
+    --color-accent-600: 71 85 105;
+    --color-accent-700: 51 65 85;
+    --color-accent-800: 30 41 59;
+    --color-accent-900: 15 23 42;
+  }
+
+  /* ========================================
+     UTILITY CLASSES FOR THEME COLORS
+     ======================================== */
+  .bg-primary-50 { background-color: rgb(var(--color-primary-50)); }
+  .bg-primary-100 { background-color: rgb(var(--color-primary-100)); }
+  .bg-primary-200 { background-color: rgb(var(--color-primary-200)); }
+  .bg-primary-600 { background-color: rgb(var(--color-primary-600)); }
+  .bg-primary-700 { background-color: rgb(var(--color-primary-700)); }
+  .bg-accent-600 { background-color: rgb(var(--color-accent-600)); }
+  .bg-accent-700 { background-color: rgb(var(--color-accent-700)); }
+
+  .text-primary-600 { color: rgb(var(--color-primary-600)); }
+  .text-primary-700 { color: rgb(var(--color-primary-700)); }
+  .text-accent-600 { color: rgb(var(--color-accent-600)); }
+  .text-accent-700 { color: rgb(var(--color-accent-700)); }
+
+  .border-primary-500 { border-color: rgb(var(--color-primary-500)); }
+  .border-primary-600 { border-color: rgb(var(--color-primary-600)); }
+  .border-accent-600 { border-color: rgb(var(--color-accent-600)); }
+
+  .hover\:bg-primary-600:hover { background-color: rgb(var(--color-primary-600)); }
+  .hover\:bg-primary-700:hover { background-color: rgb(var(--color-primary-700)); }
+  .hover\:bg-accent-700:hover { background-color: rgb(var(--color-accent-700)); }
+  .hover\:text-primary-600:hover { color: rgb(var(--color-primary-600)); }
+  .hover\:text-primary-700:hover { color: rgb(var(--color-primary-700)); }
+  .hover\:text-white:hover { color: white; }
+  .hover\:border-primary-500:hover { border-color: rgb(var(--color-primary-500)); }
+  .hover\:border-primary-600:hover { border-color: rgb(var(--color-primary-600)); }
+
+  .group-hover\:bg-primary-600 { }
+  .group:hover .group-hover\:bg-primary-600 { background-color: rgb(var(--color-primary-600)); }
+  .group:hover .group-hover\:text-primary-600 { color: rgb(var(--color-primary-600)); }
+  .group:hover .group-hover\:text-white { color: white; }
+
+  /* ========================================
+     HERO SECTION STYLING
+     ======================================== */
+  .hero-section {
+    background: var(--hero-bg);
+  }
+
+  .hero-heading {
+    color: var(--hero-text);
+  }
+
+  .hero-subheading {
+    color: var(--hero-subtext);
+  }
+
+  /* ========================================
+     CTA BUTTON WITH SHIMMER ANIMATION
+     ======================================== */
+  .btn-cta {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-cta::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    50%, 100% {
+      left: 100%;
+    }
+  }
+
+  /* ========================================
+     ACCORDION STYLING (FAQ)
+     ======================================== */
+  details summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] .chevron-icon {
+    transform: rotate(180deg);
+  }
+
+  .chevron-icon {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  /* ========================================
+     SMOOTH SCROLL
+     ======================================== */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* ========================================
+     FOCUS STYLES FOR ACCESSIBILITY
+     ======================================== */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid rgb(var(--color-primary-600));
+    outline-offset: 2px;
+  }
+
+  /* ========================================
+     MOBILE-FIRST PHONE LINK STYLING
+     ======================================== */
+  /* Phone links in body text - green with underline */
+  p a[href^="tel:"],
+  .phone-link {
+    color: #15803d;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+
+  p a[href^="tel:"]:hover,
+  .phone-link:hover {
+    color: #166534;
+  }
+
+  /* Phone buttons - no underline */
+  button a[href^="tel:"],
+  .btn a[href^="tel:"],
+  .btn-cta {
+    text-decoration: none;
+  }
+
+  /* Ensure tap targets are thumb-friendly on mobile */
+  @media (max-width: 768px) {
+    a[href^="tel:"] {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  /* Pulse animation for attention */
+  @keyframes ping {
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  .animate-ping {
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+</style>
