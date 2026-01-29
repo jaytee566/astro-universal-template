@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import StickyMobileCTA from '../../components/StickyMobileCTA.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import { site, services, neighborhoods } from '../../config/site';
 
 // ============================================
@@ -128,7 +129,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 1: HERO
          ========================================== -->
-    <section class="hero-section py-16 md:py-20">
+    <section class="hero-section pt-16 md:pt-20 pb-12 md:pb-16">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         <div class="grid lg:grid-cols-5 gap-12 items-center">
           
@@ -186,6 +187,9 @@ const ctaContent = {
                 <span>Text Us</span>
               </a>
             </div>
+
+            <!-- Trust Badges -->
+            <TrustBadges />
           </div>
 
           <!-- Right Column: Image (2/5) -->

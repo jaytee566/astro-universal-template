@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import StickyMobileCTA from '../../components/StickyMobileCTA.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import { site } from '../../config/site';
 
 // ============================================
@@ -261,6 +262,9 @@ const ctaContent = {
                 <span>{service.name} Austin TX</span>
               </a>
             </div>
+
+            <!-- Trust Badges -->
+            <TrustBadges />
           </div>
 
           <!-- Right Column: Image (2/5) -->
