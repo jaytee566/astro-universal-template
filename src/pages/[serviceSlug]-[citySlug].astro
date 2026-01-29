@@ -414,22 +414,29 @@ const ctaContent = {
             };
             return (
               <div class="relative bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:border-primary-300 transition-all group">
-                <!-- Icon with gradient background -->
-                <div class="relative mb-6">
-                  <div class="absolute -inset-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
-                  <div class="relative w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d={getStepIcon(item.step)} />
-                    </svg>
+                <div class="flex items-start gap-4">
+                  <!-- Icon + Step number -->
+                  <div class="relative flex-shrink-0">
+                    <div class="absolute -top-0.5 -right-0.5 w-6 h-6 bg-primary-700/50 text-white rounded-full flex items-center justify-center text-xs font-bold z-10">
+                      {index + 1}
+                    </div>
+                    <div class="relative w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all z-0">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d={getStepIcon(item.step)} />
+                      </svg>
+                    </div>
                   </div>
-                  <!-- Step number badge -->
-                  <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary-700 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-md">
-                    {index + 1}
+
+                  <!-- Text -->
+                  <div class="min-w-0">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-primary-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
-
-                <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">{item.title}</h3>
-                <p class="text-gray-600 leading-relaxed">{item.description}</p>
               </div>
             );
           })}
@@ -695,25 +702,29 @@ const ctaContent = {
               href={`/${service.slug}/${article.slug}`}
               class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all group"
             >
-              <!-- Article Icon -->
-              <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4 group-hover:bg-primary-600 transition-colors">
-                <svg class="w-6 h-6 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+              <div class="flex items-start gap-4">
+                <!-- Article Icon -->
+                <div class="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 transition-colors">
+                  <svg class="w-4 h-4 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+
+                <div class="min-w-0">
+                  <!-- Article Title -->
+                  <h3 class="text-lg font-bold text-gray-900 mb-1 leading-tight group-hover:text-primary-600 transition-colors">
+                    {article.title}
+                  </h3>
+
+                  <!-- Read More Link -->
+                  <span class="inline-flex items-center gap-1 text-primary-600 font-semibold text-sm">
+                    Read Article
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
               </div>
-
-              <!-- Article Title -->
-              <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                {article.title}
-              </h3>
-
-              <!-- Read More Link -->
-              <span class="inline-flex items-center gap-1 text-primary-600 font-semibold text-sm">
-                Read Article
-                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
             </a>
           ))}
         </div>

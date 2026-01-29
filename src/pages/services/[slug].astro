@@ -313,13 +313,15 @@ const ctaContent = {
         <!-- Benefits Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {service.benefits.map((benefit) => (
-            <div class="bg-white rounded-2xl p-6 border border-gray-200 text-center hover:shadow-lg hover:border-primary-500 transition-all">
-              <div class="w-14 h-14 rounded-xl bg-primary-100 flex items-center justify-center mx-auto mb-4">
-                <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all text-left">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-3 h-3 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 pt-0.5">{benefit}</h3>
               </div>
-              <h3 class="text-lg font-bold text-gray-900">{benefit}</h3>
             </div>
           ))}
         </div>
@@ -566,9 +568,9 @@ const ctaContent = {
           </a>
           <a
             href={`/${service.slug}-${site.citySlug}`}
-            class="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-gray-900 font-bold text-2xl px-10 py-6 rounded-2xl transition-colors"
+            class="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white hover:bg-gray-100 text-gray-900 font-bold text-base sm:text-xl md:text-2xl px-4 sm:px-6 md:px-10 py-4 sm:py-5 md:py-6 rounded-2xl transition-colors whitespace-nowrap"
           >
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>{service.name} Austin TX</span>
