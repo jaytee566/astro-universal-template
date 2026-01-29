@@ -166,8 +166,8 @@ const ctaContent = {
          Links UP to Silo Head with exact-match anchor
          ========================================== -->
     <nav class="bg-gray-50 border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
-        <ol class="flex items-center gap-2 text-sm">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 overflow-x-auto">
+        <ol class="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm whitespace-nowrap">
           <li>
             <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors">
               Home
@@ -193,8 +193,8 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 1: HERO
          ========================================== -->
-    <section class="hero-section py-16 md:py-20">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <section class="hero-section pt-12 pb-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-5 lg:px-8">
         
         <div class="grid lg:grid-cols-5 gap-12 items-center">
           
@@ -219,20 +219,20 @@ const ctaContent = {
             </p>
 
             <!-- Trust Badges -->
-            <div class="flex flex-wrap gap-4 mb-8">
-              <div class="flex items-center gap-2 text-sm font-medium hero-subheading">
+            <div class="flex flex-nowrap items-center gap-3 sm:gap-4 mb-8 text-xs sm:text-sm">
+              <div class="flex items-center gap-2 font-medium hero-subheading whitespace-nowrap">
                 <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 <span>Licensed in {site.state}</span>
               </div>
-              <div class="flex items-center gap-2 text-sm font-medium hero-subheading">
+              <div class="flex items-center gap-2 font-medium hero-subheading whitespace-nowrap">
                 <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 <span>{site.rating}-Star Rated</span>
               </div>
-              <div class="flex items-center gap-2 text-sm font-medium hero-subheading">
+              <div class="flex items-center gap-2 font-medium hero-subheading whitespace-nowrap">
                 <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
@@ -253,7 +253,7 @@ const ctaContent = {
               </a>
               <a
                 href={`/${service.slug}-${site.citySlug}`}
-                class="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"
+                class="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-bold px-6 py-3 rounded-xl transition-colors text-base sm:text-lg whitespace-nowrap"
               >
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -297,11 +297,11 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 2: BENEFITS
          ========================================== -->
-    <section class="py-16 md:py-20 bg-gray-50">
+    <section class="py-12 md:py-16 bg-gray-50">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <!-- Section Header -->
-        <div class="text-center mb-12">
+        <div class="text-center mb-8 md:mb-10">
           <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             {benefitsContent.headline}
           </h2>
@@ -313,13 +313,17 @@ const ctaContent = {
         <!-- Benefits Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {service.benefits.map((benefit) => (
-            <div class="bg-white rounded-2xl p-6 border border-gray-200 text-center hover:shadow-lg hover:border-primary-500 transition-all">
-              <div class="w-14 h-14 rounded-xl bg-primary-100 flex items-center justify-center mx-auto mb-4">
-                <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-gray-900 text-left">
+                  {benefit}
+                </h3>
               </div>
-              <h3 class="text-lg font-bold text-gray-900">{benefit}</h3>
             </div>
           ))}
         </div>
@@ -330,7 +334,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 3: PROCESS
          ========================================== -->
-    <section class="py-16 md:py-20 bg-white">
+    <section class="py-12 md:py-20 bg-white">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <!-- Section Header -->
@@ -371,7 +375,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 4: WHY CHOOSE US FOR THIS SERVICE
          ========================================== -->
-    <section class="py-16 md:py-20 bg-gray-50">
+    <section class="py-12 md:py-16 bg-gray-50">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -510,12 +514,12 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 5: FAQ
          ========================================== -->
-    <section class="py-16 md:py-20 bg-white">
+    <section class="py-10 md:py-14 bg-white">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <!-- Section Header -->
-        <div class="text-center mb-12">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        <div class="text-center mb-6 md:mb-8">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
             {faqContent.headline}
           </h2>
         </div>
@@ -524,13 +528,13 @@ const ctaContent = {
         <div class="max-w-3xl mx-auto">
           {faqContent.questions.map((faq, index) => (
             <details class="group border-b border-gray-200" open={index === 0}>
-              <summary class="flex items-center justify-between py-6 cursor-pointer">
+              <summary class="flex items-center justify-between py-5 cursor-pointer">
                 <span class="font-bold text-gray-900 text-lg pr-4">{faq.q}</span>
-                <svg class="w-5 h-5 text-gray-500 flex-shrink-0 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-gray-400 flex-shrink-0 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </summary>
-              <p class="text-gray-600 pb-6 pr-8">
+              <p class="text-gray-700 pb-5 pr-8">
                 {faq.a}
               </p>
             </details>
@@ -566,11 +570,9 @@ const ctaContent = {
           </a>
           <a
             href={`/${service.slug}-${site.citySlug}`}
-            class="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-gray-900 font-bold text-2xl px-10 py-6 rounded-2xl transition-colors"
+            class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 font-bold text-base sm:text-2xl px-6 py-4 rounded-2xl transition-colors whitespace-nowrap"
           >
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <span aria-hidden="true" class="text-xl sm:text-2xl">🚨</span>
             <span>{service.name} Austin TX</span>
           </a>
         </div>

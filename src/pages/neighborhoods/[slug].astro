@@ -112,10 +112,10 @@ const ctaContent = {
          BREADCRUMB - Link UP to Hub (Kyle Roof)
          ========================================== -->
     <nav class="bg-gray-50 border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 overflow-x-auto">
         <a 
           href="/"
-          class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors"
+          class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors whitespace-nowrap text-xs sm:text-sm"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -128,7 +128,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 1: HERO
          ========================================== -->
-    <section class="hero-section py-16 md:py-20">
+    <section class="hero-section py-12 md:py-16">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         <div class="grid lg:grid-cols-5 gap-12 items-center">
           
@@ -221,7 +221,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 2: ABOUT THE NEIGHBORHOOD
          ========================================== -->
-    <section class="py-16 md:py-20 bg-white">
+    <section class="py-12 md:py-16 bg-white">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <div class="grid lg:grid-cols-2 gap-12 items-start">
@@ -323,7 +323,7 @@ const ctaContent = {
          SECTION 3: SERVICES GRID
          Links DOWN to Service pages (Kyle Roof)
          ========================================== -->
-    <section class="py-16 md:py-20 bg-gray-50">
+    <section class="py-12 md:py-16 bg-gray-50">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <!-- Section Header -->
@@ -343,17 +343,17 @@ const ctaContent = {
               href={`/services/${service.slug}-${neighborhood.slug}`}
               class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all group"
             >
-              <!-- Service Icon -->
-              <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4 group-hover:bg-primary-600 transition-colors">
-                <svg class="w-6 h-6 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+              <!-- Icon + Service Name Row -->
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center group-hover:bg-primary-600 transition-colors flex-shrink-0">
+                  <svg class="w-5 h-5 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+                  {service.name}
+                </h3>
               </div>
-              
-              <!-- Service Name -->
-              <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                {service.name}
-              </h3>
               
               <!-- Location Context -->
               <p class="text-gray-600 mb-4">
@@ -393,7 +393,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 4: WHY CHOOSE US
          ========================================== -->
-    <section class="py-16 md:py-20 bg-white">
+    <section class="py-12 md:py-16 bg-white">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <!-- Section Header -->
