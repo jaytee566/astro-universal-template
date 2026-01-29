@@ -21,6 +21,23 @@ export const site = {
   nicheLowercase: "home services",
   theme: "standard" as const,
   hubSlug: "austin-home-services",
+  serviceLocation: {
+    lat: 30.2672,
+    lng: -97.7431
+  },
+  serviceRadius: 25000,
+  serviceAreas: [
+    { name: "Downtown Austin", slug: "downtown" },
+    { name: "East Austin", slug: "east-austin" },
+    { name: "South Austin", slug: "south-austin" },
+    { name: "North Austin", slug: "north-austin" },
+    { name: "West Austin", slug: "west-austin" },
+    { name: "Round Rock", slug: "round-rock" },
+    { name: "Cedar Park", slug: "cedar-park" },
+    { name: "Pflugerville", slug: "pflugerville" },
+  ],
+  brandName: "Austin Pro Services",
+  licenseNumber: "AB-12345",
 };
 
 // Services for Silo Architecture

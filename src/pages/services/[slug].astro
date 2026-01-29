@@ -103,7 +103,7 @@ const { service, neighborhood } = Astro.props;
 // ============================================
 const pageData = {
   metaTitle: `${service.name} in ${neighborhood.name}, ${site.city} ${site.state} | ${site.businessName}`,
-  metaDescription: `Professional ${service.name.toLowerCase()} services in ${neighborhood.name}, ${site.city}. ${service.description} Call ${site.phone} for a free estimate.`,
+  metaDescription: `Professional, certified ${service.name.toLowerCase()} services in ${neighborhood.name}, ${site.city}. ${service.description} Call ${site.phone} to schedule a free assessment.`,
 };
 
 // ============================================
@@ -153,7 +153,7 @@ const faqContent = {
 
 const ctaContent = {
   headline: `Need ${service.name} in ${neighborhood.name}?`,
-  subheadline: `Get a free estimate from ${site.city}'s trusted ${site.nicheLowercase} professionals.`,
+  subheadline: `Schedule a free assessment with ${site.city}'s trusted, licensed ${site.nicheLowercase} professionals.`,
 };
 ---
 
@@ -166,8 +166,8 @@ const ctaContent = {
          Links UP to Silo Head with exact-match anchor
          ========================================== -->
     <nav class="bg-gray-50 border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 overflow-x-auto">
-        <ol class="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm whitespace-nowrap">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
+        <ol class="flex items-center gap-2 text-sm">
           <li>
             <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors">
               Home
@@ -193,8 +193,8 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 1: HERO
          ========================================== -->
-    <section class="hero-section pt-12 pb-16 md:py-20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-5 lg:px-8">
+    <section class="hero-section py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <div class="grid lg:grid-cols-5 gap-12 items-center">
           
@@ -219,24 +219,24 @@ const ctaContent = {
             </p>
 
             <!-- Trust Badges -->
-            <div class="flex flex-nowrap items-center gap-3 sm:gap-4 mb-8 text-xs sm:text-sm">
-              <div class="flex items-center gap-2 font-medium hero-subheading whitespace-nowrap">
+            <div class="flex flex-wrap gap-4 mb-8">
+              <div class="flex items-center gap-2 text-sm font-medium hero-subheading">
                 <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 <span>Licensed in {site.state}</span>
               </div>
-              <div class="flex items-center gap-2 font-medium hero-subheading whitespace-nowrap">
+              <div class="flex items-center gap-2 text-sm font-medium hero-subheading">
                 <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 <span>{site.rating}-Star Rated</span>
               </div>
-              <div class="flex items-center gap-2 font-medium hero-subheading whitespace-nowrap">
+              <div class="flex items-center gap-2 text-sm font-medium hero-subheading">
                 <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
-                <span>Free Estimates</span>
+                <span>Free Assessments</span>
               </div>
             </div>
 
@@ -253,7 +253,7 @@ const ctaContent = {
               </a>
               <a
                 href={`/${service.slug}-${site.citySlug}`}
-                class="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-bold px-6 py-3 rounded-xl transition-colors text-base sm:text-lg whitespace-nowrap"
+                class="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"
               >
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -297,11 +297,11 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 2: BENEFITS
          ========================================== -->
-    <section class="py-12 md:py-16 bg-gray-50">
+    <section class="py-16 md:py-20 bg-gray-50">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <!-- Section Header -->
-        <div class="text-center mb-8 md:mb-10">
+        <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             {benefitsContent.headline}
           </h2>
@@ -313,16 +313,14 @@ const ctaContent = {
         <!-- Benefits Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {service.benefits.map((benefit) => (
-            <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all text-left">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-3 h-3 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 class="text-base sm:text-lg font-bold text-gray-900 text-left">
-                  {benefit}
-                </h3>
+                <h3 class="text-lg font-bold text-gray-900 pt-0.5">{benefit}</h3>
               </div>
             </div>
           ))}
@@ -334,7 +332,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 3: PROCESS
          ========================================== -->
-    <section class="py-12 md:py-20 bg-white">
+    <section class="py-16 md:py-20 bg-white">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <!-- Section Header -->
@@ -375,7 +373,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 4: WHY CHOOSE US FOR THIS SERVICE
          ========================================== -->
-    <section class="py-12 md:py-16 bg-gray-50">
+    <section class="py-16 md:py-20 bg-gray-50">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -514,12 +512,12 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 5: FAQ
          ========================================== -->
-    <section class="py-10 md:py-14 bg-white">
+    <section class="py-16 md:py-20 bg-white">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <!-- Section Header -->
-        <div class="text-center mb-6 md:mb-8">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             {faqContent.headline}
           </h2>
         </div>
@@ -528,13 +526,13 @@ const ctaContent = {
         <div class="max-w-3xl mx-auto">
           {faqContent.questions.map((faq, index) => (
             <details class="group border-b border-gray-200" open={index === 0}>
-              <summary class="flex items-center justify-between py-5 cursor-pointer">
+              <summary class="flex items-center justify-between py-6 cursor-pointer">
                 <span class="font-bold text-gray-900 text-lg pr-4">{faq.q}</span>
-                <svg class="w-5 h-5 text-gray-400 flex-shrink-0 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-gray-500 flex-shrink-0 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </summary>
-              <p class="text-gray-700 pb-5 pr-8">
+              <p class="text-gray-600 pb-6 pr-8">
                 {faq.a}
               </p>
             </details>
@@ -570,9 +568,11 @@ const ctaContent = {
           </a>
           <a
             href={`/${service.slug}-${site.citySlug}`}
-            class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 font-bold text-base sm:text-2xl px-6 py-4 rounded-2xl transition-colors whitespace-nowrap"
+            class="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white hover:bg-gray-100 text-gray-900 font-bold text-base sm:text-xl md:text-2xl px-4 sm:px-6 md:px-10 py-4 sm:py-5 md:py-6 rounded-2xl transition-colors whitespace-nowrap"
           >
-            <span aria-hidden="true" class="text-xl sm:text-2xl">🚨</span>
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
             <span>{service.name} Austin TX</span>
           </a>
         </div>
@@ -595,7 +595,7 @@ const ctaContent = {
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            <span>Free Estimates</span>
+            <span>Free Assessments</span>
           </div>
         </div>
 
