@@ -19,7 +19,7 @@ const { neighborhoods = defaultNeighborhoods, hideServiceAreas = false } = Astro
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-gray-950 text-white">
+<footer class="bg-slate-950 text-white">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 py-12 md:py-16">
     
     <!-- Main Footer Grid -->
@@ -28,8 +28,8 @@ const currentYear = new Date().getFullYear();
       <!-- Column 1: Logo + Description -->
       <div class="lg:col-span-2">
         <a href="/" class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-10 h-10 rounded-xl bg-primary-700 flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
@@ -37,14 +37,17 @@ const currentYear = new Date().getFullYear();
           <span class="text-xl font-bold">{site.businessName}</span>
         </a>
         
-        <p class="text-gray-400 mb-6 max-w-md">
-          Professional {site.nicheLowercase} services you can trust. Licensed, insured, and ready to help homeowners throughout {site.city} and surrounding areas.
+        <p class="text-gray-300 mb-3 max-w-md">
+          Certified, licensed, and insured {site.nicheLowercase} for critical systems in your home or facility. We follow strict safety protocols and documentation standards across {site.city} and surrounding areas.
+        </p>
+        <p class="text-emerald-300 text-sm mb-6">
+          License #AB-12345 • EPA &amp; State Certified
         </p>
         
         <!-- Phone -->
         <a 
           href={`tel:${site.phoneLink}`}
-          class="inline-flex items-center gap-2 text-lg font-bold text-white hover:text-accent-600 transition-colors"
+          class="inline-flex items-center gap-2 text-lg font-bold text-emerald-300 hover:text-emerald-200 transition-colors"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
@@ -53,8 +56,8 @@ const currentYear = new Date().getFullYear();
           {site.phone}
         </a>
         
-        <p class="text-gray-500 text-sm mt-2">
-          Serving {site.city} and {site.serviceArea} surrounding area
+        <p class="text-gray-400 text-sm mt-2">
+          Serving {site.city} and {site.serviceArea} with compliant, professionally documented service.
         </p>
       </div>
       
@@ -63,17 +66,17 @@ const currentYear = new Date().getFullYear();
         <h3 class="text-lg font-bold mb-4">Quick Links</h3>
         <ul class="space-y-3">
           <li>
-            <a href="/about" class="text-gray-400 hover:text-white transition-colors">
+            <a href="/about" class="text-gray-300 hover:text-emerald-300 transition-colors">
               About Us
             </a>
           </li>
           <li>
-            <a href="/contact" class="text-gray-400 hover:text-white transition-colors">
+            <a href="/contact" class="text-gray-300 hover:text-emerald-300 transition-colors">
               Contact
             </a>
           </li>
           <li>
-            <a href="/faq" class="text-gray-400 hover:text-white transition-colors">
+            <a href="/faq" class="text-gray-300 hover:text-emerald-300 transition-colors">
               FAQ
             </a>
           </li>
@@ -90,7 +93,7 @@ const currentYear = new Date().getFullYear();
               <li>
                 <a 
                   href={`/neighborhoods/${area.slug}`}
-                  class="text-gray-400 hover:text-white transition-colors"
+                  class="text-gray-300 hover:text-emerald-300 transition-colors"
                 >
                   {area.name}
                 </a>
@@ -103,20 +106,20 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <!-- Bottom Bar -->
-    <div class="border-t border-gray-800 mt-12 pt-8">
+    <div class="border-t border-slate-800 mt-12 pt-8">
       <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
         
         <!-- Copyright -->
-        <p class="text-gray-500 text-sm">
+        <p class="text-gray-400 text-sm">
           © {currentYear} {site.businessName}. All rights reserved.
         </p>
         
         <!-- Legal Links -->
         <div class="flex items-center gap-6">
-          <a href="/privacy" class="text-gray-500 hover:text-white text-sm transition-colors">
+          <a href="/privacy" class="text-gray-400 hover:text-emerald-300 text-sm transition-colors">
             Privacy Policy
           </a>
-          <a href="/terms" class="text-gray-500 hover:text-white text-sm transition-colors">
+          <a href="/terms" class="text-gray-400 hover:text-emerald-300 text-sm transition-colors">
             Terms of Service
           </a>
         </div>

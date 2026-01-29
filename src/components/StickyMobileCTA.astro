@@ -5,12 +5,12 @@ import { site } from '../config/site';
 <!-- Spacer to prevent content overlap - 72px for larger bar -->
 <div class="h-[72px] md:hidden" aria-hidden="true"></div>
 
-<!-- Sticky Mobile CTA Bar - IMPOSSIBLE TO MISS -->
-<div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-gradient-to-r from-orange-600 to-orange-500 shadow-[0_-4px_20px_rgba(0,0,0,0.2)]">
+<!-- Sticky Mobile CTA Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-primary-600 shadow-[0_-4px_20px_rgba(0,0,0,0.2)]">
   <!-- Main Call Button - Full width, prominent -->
   <a
     href={`tel:${site.phoneLink}`}
-    class="flex items-center justify-center gap-3 py-4 px-6 active:bg-orange-700 transition-colors"
+    class="m-2 flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-accent-600 active:bg-accent-700 transition-colors"
   >
     <!-- Phone Icon with pulse animation -->
     <div class="relative">
@@ -23,7 +23,7 @@ import { site } from '../config/site';
 
     <!-- CTA Text -->
     <div class="flex flex-col items-start">
-      <span class="text-white font-bold text-lg leading-tight">Call Now - Free Estimate</span>
+      <span class="text-white font-bold text-lg leading-tight">📞 Schedule Assessment</span>
       <span class="text-white/90 font-semibold text-sm">{site.phone}</span>
     </div>
   </a>

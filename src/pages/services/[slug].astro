@@ -103,7 +103,7 @@ const { service, neighborhood } = Astro.props;
 // ============================================
 const pageData = {
   metaTitle: `${service.name} in ${neighborhood.name}, ${site.city} ${site.state} | ${site.businessName}`,
-  metaDescription: `Professional ${service.name.toLowerCase()} services in ${neighborhood.name}, ${site.city}. ${service.description} Call ${site.phone} for a free estimate.`,
+  metaDescription: `Professional, certified ${service.name.toLowerCase()} services in ${neighborhood.name}, ${site.city}. ${service.description} Call ${site.phone} to schedule a free assessment.`,
 };
 
 // ============================================
@@ -153,7 +153,7 @@ const faqContent = {
 
 const ctaContent = {
   headline: `Need ${service.name} in ${neighborhood.name}?`,
-  subheadline: `Get a free estimate from ${site.city}'s trusted ${site.nicheLowercase} professionals.`,
+  subheadline: `Schedule a free assessment with ${site.city}'s trusted, licensed ${site.nicheLowercase} professionals.`,
 };
 ---
 
@@ -236,7 +236,7 @@ const ctaContent = {
                 <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
-                <span>Free Estimates</span>
+                <span>Free Assessments</span>
               </div>
             </div>
 
@@ -593,7 +593,7 @@ const ctaContent = {
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            <span>Free Estimates</span>
+            <span>Free Assessments</span>
           </div>
         </div>
 

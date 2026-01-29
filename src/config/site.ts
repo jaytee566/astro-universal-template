@@ -19,7 +19,7 @@ export const site = {
   yearsInBusiness: "15",
   niche: "Home Services",
   nicheLowercase: "home services",
-  theme: "standard" as const,
+  theme: "technical" as const,
   hubSlug: "austin-home-services",
 };
 
