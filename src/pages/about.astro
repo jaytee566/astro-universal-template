@@ -128,12 +128,15 @@ const ctaContent = {
         <div class="grid md:grid-cols-2 gap-8">
           {missionContent.values.map((value) => (
             <div class="bg-white rounded-2xl p-8 border border-gray-200">
-              <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
+              <!-- Icon + Title Row -->
+              <div class="flex items-start gap-4 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 pt-1">{value.title}</h3>
               </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
               <p class="text-gray-600">{value.description}</p>
             </div>
           ))}
@@ -166,41 +169,41 @@ const ctaContent = {
         </div>
 
         <!-- Trust Badges -->
-        <div class="flex flex-wrap justify-center gap-8 mt-12 pt-12 border-t border-gray-200">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+        <div class="flex flex-nowrap justify-center gap-4 sm:gap-8 mt-12 pt-12 border-t border-gray-200 overflow-x-auto">
+          <div class="flex items-center gap-3 flex-shrink-0">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
               <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
             <div>
-              <div class="font-bold text-gray-900">Licensed & Insured</div>
-              <div class="text-sm text-gray-500">Full coverage in {site.state}</div>
+              <div class="font-bold text-gray-900 whitespace-nowrap">Licensed & Insured</div>
+              <div class="text-sm text-gray-500 whitespace-nowrap">Full coverage in {site.state}</div>
             </div>
           </div>
 
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+          <div class="flex items-center gap-3 flex-shrink-0">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
               <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
               </svg>
             </div>
             <div>
-              <div class="font-bold text-gray-900">Satisfaction Guaranteed</div>
-              <div class="text-sm text-gray-500">We stand behind our work</div>
+              <div class="font-bold text-gray-900 whitespace-nowrap">Satisfaction Guaranteed</div>
+              <div class="text-sm text-gray-500 whitespace-nowrap">We stand behind our work</div>
             </div>
           </div>
 
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+          <div class="flex items-center gap-3 flex-shrink-0">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
               <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
             <div>
-              <div class="font-bold text-gray-900">Locally Owned</div>
-              <div class="text-sm text-gray-500">Proudly serving {site.city}</div>
+              <div class="font-bold text-gray-900 whitespace-nowrap">Locally Owned</div>
+              <div class="text-sm text-gray-500 whitespace-nowrap">Proudly serving {site.city}</div>
             </div>
           </div>
         </div>

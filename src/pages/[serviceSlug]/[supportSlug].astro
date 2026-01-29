@@ -224,11 +224,11 @@ const ctaContent = {
          This is CRITICAL for Kyle Roof SEO methodology
          ========================================== -->
     <nav class="bg-gray-50 border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
-        <ol class="flex flex-wrap items-center gap-2 text-sm">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 overflow-x-auto">
+        <ol class="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm whitespace-nowrap">
           <!-- Home -->
           <li>
-            <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors">
+            <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap">
               Home
             </a>
           </li>
@@ -244,7 +244,7 @@ const ctaContent = {
           <li>
             <a
               href={siloHeadUrl}
-              class="text-primary-600 hover:text-primary-700 font-medium transition-colors"
+              class="text-primary-600 hover:text-primary-700 font-medium transition-colors whitespace-nowrap"
             >
               {siloHeadAnchor}
             </a>
@@ -258,7 +258,7 @@ const ctaContent = {
           </li>
 
           <!-- Current Article -->
-          <li class="text-gray-900 font-medium">
+          <li class="text-gray-900 font-medium whitespace-nowrap">
             {article.title}
           </li>
         </ol>
@@ -337,13 +337,13 @@ const ctaContent = {
         </article>
 
         <!-- Inline CTA -->
-        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 mt-12">
+        <div class="bg-slate-900 rounded-2xl p-8 border border-slate-800 mt-12">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2">
+              <h3 class="text-xl font-bold text-white mb-2">
                 Need Help with {service.name}?
               </h3>
-              <p class="text-gray-600">
+              <p class="text-gray-300">
                 Our {site.city} experts are ready to assist you.
               </p>
             </div>
@@ -443,18 +443,18 @@ const ctaContent = {
     <section class="py-12 md:py-16 bg-white">
       <div class="max-w-4xl mx-auto px-5 sm:px-8">
         
-        <div class="bg-primary-600 rounded-2xl p-8 md:p-12 text-center">
+        <div class="bg-slate-900 rounded-2xl p-8 md:p-12 text-center">
           <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
             Ready for Professional {service.name}?
           </h2>
-          <p class="text-primary-100 mb-8 text-lg max-w-2xl mx-auto">
+          <p class="text-gray-300 mb-8 text-lg max-w-2xl mx-auto">
             Now that you understand {article.title.toLowerCase()}, let our {site.city} experts put that knowledge to work for you.
           </p>
           
           <!-- CTA with EXACT-MATCH anchor to Silo Head -->
           <a 
             href={siloHeadUrl}
-            class="inline-flex items-center gap-2 bg-white text-primary-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors text-lg"
+            class="inline-flex items-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"
           >
             <span>{siloHeadAnchor}</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

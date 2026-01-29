@@ -110,7 +110,7 @@ const pageData = {
 // ============================================
 const heroContent = {
   badge: `${service.name} Services`,
-  headline: `${service.name} in ${neighborhood.name}, Austin`,
+  headline: `${service.name} in ${neighborhood.name}, ${site.state}`,
   subheadline: `${service.description} Serving ${neighborhood.name} and surrounding areas in ${site.city}, ${site.state}.`,
 };
 
@@ -164,10 +164,10 @@ const ctaContent = {
          Links UP to Silo Head with exact-match anchor
          ========================================== -->
     <nav class="bg-gray-50 border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
-        <ol class="flex items-center gap-2 text-sm">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 overflow-x-auto">
+        <ol class="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm whitespace-nowrap">
           <li>
-            <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors">
+            <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap">
               Home
             </a>
           </li>
@@ -175,13 +175,13 @@ const ctaContent = {
           <li>
             <a
               href={`/${service.slug}-${site.citySlug}`}
-              class="text-gray-600 hover:text-primary-600 transition-colors"
+              class="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap"
             >
               {service.name} Austin TX
             </a>
           </li>
           <li class="text-gray-400">/</li>
-          <li class="text-gray-900 font-medium">
+          <li class="text-gray-900 font-medium whitespace-nowrap">
             {neighborhood.name}
           </li>
         </ol>
@@ -311,13 +311,16 @@ const ctaContent = {
         <!-- Benefits Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {service.benefits.map((benefit) => (
-            <div class="bg-white rounded-2xl p-6 border border-gray-200 text-center hover:shadow-lg hover:border-primary-500 transition-all">
-              <div class="w-14 h-14 rounded-xl bg-primary-100 flex items-center justify-center mx-auto mb-4">
-                <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all">
+              <!-- Icon + Title Row -->
+              <div class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 pt-1">{benefit}</h3>
               </div>
-              <h3 class="text-lg font-bold text-gray-900">{benefit}</h3>
             </div>
           ))}
         </div>
