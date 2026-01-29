@@ -2,12 +2,12 @@
 // Change these values to update the entire site
 
 export const site = {
-  businessName: "Austin Water Damage Pros",
-  tagline: "24/7 Emergency Response",
+  businessName: "Austin Pro Services",
+  tagline: "Quality Service, Guaranteed",
   phone: "(512) 555-0123",
   phoneLink: "5125550123",
-  email: "info@austinwaterdamagepros.com",
-  domain: "austinwaterdamagepros.com",
+  email: "info@austinproservices.com",
+  domain: "austinproservices.com",
   city: "Austin",
   citySlug: "austin",
   state: "TX",
@@ -17,17 +17,34 @@ export const site = {
   rating: "4.9",
   reviewCount: "500+",
   yearsInBusiness: "15",
-  niche: "Water Damage Restoration",
-  nicheLowercase: "water damage restoration",
-  theme: "urgent" as const,
-  hubSlug: "austin-water-damage-restoration",
+  niche: "Home Services",
+  nicheLowercase: "home services",
+  theme: "technical" as const,
+  hubSlug: "austin-home-services",
+  serviceLocation: {
+    lat: 30.2672,
+    lng: -97.7431
+  },
+  serviceRadius: 25000,
+  serviceAreas: [
+    { name: "Downtown Austin", slug: "downtown" },
+    { name: "East Austin", slug: "east-austin" },
+    { name: "South Austin", slug: "south-austin" },
+    { name: "North Austin", slug: "north-austin" },
+    { name: "West Austin", slug: "west-austin" },
+    { name: "Round Rock", slug: "round-rock" },
+    { name: "Cedar Park", slug: "cedar-park" },
+    { name: "Pflugerville", slug: "pflugerville" },
+  ],
+  brandName: "Austin Pro Services",
+  licenseNumber: "AB-12345",
 };
 
 // Services for Silo Architecture
 export const services = [
-  { slug: 'water-extraction', name: 'Water Extraction' },
-  { slug: 'flood-damage-repair', name: 'Flood Damage Repair' },
-  { slug: 'emergency-water-removal', name: 'Emergency Water Removal' },
+  { slug: 'general-maintenance', name: 'General Maintenance' },
+  { slug: 'appliance-repair', name: 'Appliance Repair' },
+  { slug: 'emergency-services', name: 'Emergency Services' },
 ];
 
 // Neighborhoods

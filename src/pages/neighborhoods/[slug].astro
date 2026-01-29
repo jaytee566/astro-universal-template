@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import StickyMobileCTA from '../../components/StickyMobileCTA.astro';
 import { site, services, neighborhoods } from '../../config/site';
@@ -61,7 +62,7 @@ const { neighborhood } = Astro.props;
 // ============================================
 const pageData = {
   metaTitle: `${site.niche} Services in ${neighborhood.name}, ${site.city} | ${site.businessName}`,
-  metaDescription: `Professional ${site.nicheLowercase} services in ${neighborhood.name}, ${site.city}. Licensed experts serving ${neighborhood.name} and surrounding areas. Call ${site.phone} for a free estimate.`,
+  metaDescription: `Professional, certified ${site.nicheLowercase} services in ${neighborhood.name}, ${site.city}. Licensed experts serving ${neighborhood.name} and surrounding areas. Call ${site.phone} to schedule a free assessment.`,
 };
 
 // ============================================
@@ -69,7 +70,7 @@ const pageData = {
 // ============================================
 const heroContent = {
   headline: `${site.niche} Services in ${neighborhood.name}`,
-  subheadline: `Professional ${site.nicheLowercase} for homes and businesses in ${neighborhood.name}, ${site.state}. Fast response, licensed experts, satisfaction guaranteed.`,
+  subheadline: `Professional ${site.nicheLowercase} for homes and businesses in ${neighborhood.name}, ${site.city}. Fast response, licensed experts, satisfaction guaranteed.`,
 };
 
 // Hero Image
@@ -105,15 +106,16 @@ const ctaContent = {
 
 <Layout title={pageData.metaTitle} description={pageData.metaDescription}>
   <div class="bg-white text-gray-700">
+    <Header />
 
     <!-- ==========================================
          BREADCRUMB - Link UP to Hub (Kyle Roof)
          ========================================== -->
     <nav class="bg-gray-50 border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 overflow-x-auto">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
         <a 
           href="/"
-          class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors whitespace-nowrap text-xs sm:text-sm"
+          class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -138,7 +140,7 @@ const ctaContent = {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span>{neighborhood.name}, {site.state}</span>
+              <span>{neighborhood.name}, {site.city}</span>
             </div>
 
             <!-- Headline -->
@@ -153,7 +155,7 @@ const ctaContent = {
 
             <!-- Trust Badges -->
             <div class="flex flex-wrap gap-4 mb-8">
-              {['Licensed & Insured', `${site.rating}-Star Rated`, 'Free Estimates'].map((badge) => (
+              {['EPA Certified', `${site.rating}-Star Rated`, 'Free Assessments'].map((badge) => (
                 <div class="flex items-center gap-2 text-sm font-medium hero-subheading">
                   <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -308,7 +310,7 @@ const ctaContent = {
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <span>Call for Free Estimate</span>
+              <span>Call for Free Assessment</span>
             </a>
           </div>
 
@@ -343,14 +345,12 @@ const ctaContent = {
             >
               <!-- Icon + Title Row -->
               <div class="flex items-start gap-4 mb-4">
-                <!-- Service Icon -->
                 <div class="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 transition-colors">
                   <svg class="w-4 h-4 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <!-- Service Name -->
-                <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors pt-1">
+                <h3 class="text-xl font-bold text-gray-900 pt-0.5 group-hover:text-primary-600 transition-colors">
                   {service.name}
                 </h3>
               </div>
@@ -378,7 +378,7 @@ const ctaContent = {
           </p>
           <a 
             href={`tel:${site.phoneLink}`}
-            class="inline-flex items-center justify-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-bold px-6 py-3 rounded-xl transition-colors no-underline"
+            class="inline-flex items-center gap-2 text-primary-600 font-bold hover:underline"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -465,7 +465,7 @@ const ctaContent = {
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            <span>Free Estimates</span>
+            <span>Free Assessments</span>
           </div>
         </div>
 

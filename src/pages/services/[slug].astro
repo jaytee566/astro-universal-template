@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import StickyMobileCTA from '../../components/StickyMobileCTA.astro';
 import { site } from '../../config/site';
@@ -22,54 +23,54 @@ export async function getStaticPaths() {
   // Sample services
   const services = [
     {
-      slug: 'water-extraction',
-      name: 'Water Extraction',
-      description: 'Emergency water removal using industrial-grade extraction equipment to prevent further damage.',
+      slug: 'general-maintenance',
+      name: 'General Maintenance',
+      description: 'Comprehensive maintenance services to keep your property in top condition.',
       benefits: [
-        '30-minute response time',
-        'Industrial extraction equipment',
-        '24/7 emergency availability',
-        'Direct insurance billing',
+        'Prevent costly repairs',
+        'Extend equipment lifespan',
+        'Maintain property value',
+        'Peace of mind',
       ],
       process: [
-        { step: 'Assessment', description: 'Inspect water damage extent' },
-        { step: 'Extraction', description: 'Remove standing water immediately' },
-        { step: 'Drying', description: 'Industrial dehumidifiers and air movers' },
-        { step: 'Restoration', description: 'Complete property restoration' },
+        { step: 'Inspection', description: 'Thorough assessment of your property' },
+        { step: 'Diagnosis', description: 'Identify issues and maintenance needs' },
+        { step: 'Service', description: 'Professional maintenance work' },
+        { step: 'Verification', description: 'Quality check and documentation' },
       ],
     },
     {
-      slug: 'flood-damage-repair',
-      name: 'Flood Damage Repair',
-      description: 'Complete flood damage restoration including structural repairs and mold prevention.',
+      slug: 'appliance-repair',
+      name: 'Appliance Repair',
+      description: 'Expert appliance repair services for all major brands and models.',
       benefits: [
-        'Complete structural repairs',
-        'Mold prevention treatment',
-        'Insurance claim assistance',
-        'Licensed contractors',
+        'Same-day service available',
+        'All major brands serviced',
+        'Parts and labor warranty',
+        'Certified technicians',
       ],
       process: [
-        { step: 'Inspection', description: 'Comprehensive damage assessment' },
-        { step: 'Mitigation', description: 'Stop further water damage' },
-        { step: 'Restoration', description: 'Rebuild and repair damaged areas' },
-        { step: 'Verification', description: 'Quality check and certification' },
+        { step: 'Diagnose', description: 'Identify the problem quickly' },
+        { step: 'Quote', description: 'Transparent pricing estimate' },
+        { step: 'Repair', description: 'Professional fix with quality parts' },
+        { step: 'Test', description: 'Verify everything works perfectly' },
       ],
     },
     {
-      slug: 'emergency-water-removal',
-      name: 'Emergency Water Removal',
-      description: 'Immediate response for burst pipes, flooding, and water emergencies 24/7.',
+      slug: 'emergency-services',
+      name: 'Emergency Services',
+      description: 'Fast response emergency services available 24/7.',
       benefits: [
-        'Immediate response 24/7',
-        'Stop water damage fast',
-        'Advanced drying technology',
-        'Minimize property damage',
+        '24/7 availability',
+        'Rapid response times',
+        'Experienced technicians',
+        'Minimize damage',
       ],
       process: [
-        { step: 'Emergency Call', description: 'Contact us for immediate help' },
-        { step: 'Rapid Dispatch', description: 'Team arrives in 30 minutes' },
-        { step: 'Water Removal', description: 'Extract water and dry property' },
-        { step: 'Full Restoration', description: 'Complete repair and restoration' },
+        { step: 'Call', description: 'Contact us immediately' },
+        { step: 'Dispatch', description: 'Technician en route quickly' },
+        { step: 'Stabilize', description: 'Stop damage and secure property' },
+        { step: 'Restore', description: 'Complete restoration plan' },
       ],
     },
   ];
@@ -102,7 +103,7 @@ const { service, neighborhood } = Astro.props;
 // ============================================
 const pageData = {
   metaTitle: `${service.name} in ${neighborhood.name}, ${site.city} ${site.state} | ${site.businessName}`,
-  metaDescription: `Professional ${service.name.toLowerCase()} services in ${neighborhood.name}, ${site.city}. ${service.description} Call ${site.phone} for a free estimate.`,
+  metaDescription: `Professional, certified ${service.name.toLowerCase()} services in ${neighborhood.name}, ${site.city}. ${service.description} Call ${site.phone} to schedule a free assessment.`,
 };
 
 // ============================================
@@ -110,7 +111,7 @@ const pageData = {
 // ============================================
 const heroContent = {
   badge: `${service.name} Services`,
-  headline: `${service.name} in ${neighborhood.name}, ${site.state}`,
+  headline: `${service.name} in ${neighborhood.name}, Austin`,
   subheadline: `${service.description} Serving ${neighborhood.name} and surrounding areas in ${site.city}, ${site.state}.`,
 };
 
@@ -152,22 +153,23 @@ const faqContent = {
 
 const ctaContent = {
   headline: `Need ${service.name} in ${neighborhood.name}?`,
-  subheadline: `Get a free estimate from ${site.city}'s trusted ${site.nicheLowercase} professionals.`,
+  subheadline: `Schedule a free assessment with ${site.city}'s trusted, licensed ${site.nicheLowercase} professionals.`,
 };
 ---
 
 <Layout title={pageData.metaTitle} description={pageData.metaDescription}>
   <div class="bg-white text-gray-700">
+    <Header />
 
     <!-- ==========================================
          BREADCRUMB - Shows hierarchy: Home > Silo Head > Current Page
          Links UP to Silo Head with exact-match anchor
          ========================================== -->
     <nav class="bg-gray-50 border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 overflow-x-auto">
-        <ol class="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm whitespace-nowrap">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
+        <ol class="flex items-center gap-2 text-sm">
           <li>
-            <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap">
+            <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors">
               Home
             </a>
           </li>
@@ -175,13 +177,13 @@ const ctaContent = {
           <li>
             <a
               href={`/${service.slug}-${site.citySlug}`}
-              class="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap"
+              class="text-gray-600 hover:text-primary-600 transition-colors"
             >
               {service.name} Austin TX
             </a>
           </li>
           <li class="text-gray-400">/</li>
-          <li class="text-gray-900 font-medium whitespace-nowrap">
+          <li class="text-gray-900 font-medium">
             {neighborhood.name}
           </li>
         </ol>
@@ -234,7 +236,7 @@ const ctaContent = {
                 <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
-                <span>Free Estimates</span>
+                <span>Free Assessments</span>
               </div>
             </div>
 
@@ -311,15 +313,14 @@ const ctaContent = {
         <!-- Benefits Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {service.benefits.map((benefit) => (
-            <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all">
-              <!-- Icon + Title Row -->
-              <div class="flex items-start gap-4">
-                <div class="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all text-left">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-3 h-3 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 pt-1">{benefit}</h3>
+                <h3 class="text-lg font-bold text-gray-900 pt-0.5">{benefit}</h3>
               </div>
             </div>
           ))}
@@ -567,9 +568,9 @@ const ctaContent = {
           </a>
           <a
             href={`/${service.slug}-${site.citySlug}`}
-            class="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-gray-900 font-bold text-2xl px-10 py-6 rounded-2xl transition-colors"
+            class="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white hover:bg-gray-100 text-gray-900 font-bold text-base sm:text-xl md:text-2xl px-4 sm:px-6 md:px-10 py-4 sm:py-5 md:py-6 rounded-2xl transition-colors whitespace-nowrap"
           >
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>{service.name} Austin TX</span>
@@ -594,7 +595,7 @@ const ctaContent = {
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            <span>Free Estimates</span>
+            <span>Free Assessments</span>
           </div>
         </div>
 

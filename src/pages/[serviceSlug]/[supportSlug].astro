@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import StickyMobileCTA from '../../components/StickyMobileCTA.astro';
 import { site } from '../../config/site';
@@ -124,9 +125,9 @@ export async function getStaticPaths() {
 
   // Services list
   const services = [
-    { slug: 'water-extraction', name: 'Water Extraction' },
-    { slug: 'flood-damage-repair', name: 'Flood Damage Repair' },
-    { slug: 'emergency-water-removal', name: 'Emergency Water Removal' },
+    { slug: 'general-maintenance', name: 'General Maintenance' },
+    { slug: 'appliance-repair', name: 'Appliance Repair' },
+    { slug: 'emergency-services', name: 'Emergency Services' },
   ];
 
   // Generate all support article pages
@@ -211,12 +212,13 @@ const heroContent = {
 
 const ctaContent = {
   headline: `Need Professional ${service.name}?`,
-  subheadline: `Our ${site.city} experts are ready to help. Call today for a free estimate.`,
+  subheadline: `Our ${site.city} experts are ready to help. Call today to schedule a free assessment.`,
 };
 ---
 
 <Layout title={pageData.metaTitle} description={pageData.metaDescription}>
   <div class="bg-white text-gray-700">
+    <Header />
 
     <!-- ==========================================
          BREADCRUMB - Full trail with EXACT-MATCH ANCHOR to Silo Head
@@ -227,21 +229,21 @@ const ctaContent = {
       <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 overflow-x-auto">
         <ol class="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm whitespace-nowrap">
           <!-- Home -->
-          <li>
+          <li class="whitespace-nowrap">
             <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap">
               Home
             </a>
           </li>
 
           <!-- Separator -->
-          <li class="text-gray-400">
+          <li class="text-gray-400 whitespace-nowrap flex-shrink-0">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </li>
 
           <!-- Silo Head - EXACT-MATCH ANCHOR TEXT -->
-          <li>
+          <li class="whitespace-nowrap">
             <a
               href={siloHeadUrl}
               class="text-primary-600 hover:text-primary-700 font-medium transition-colors whitespace-nowrap"
@@ -251,7 +253,7 @@ const ctaContent = {
           </li>
 
           <!-- Separator -->
-          <li class="text-gray-400">
+          <li class="text-gray-400 whitespace-nowrap flex-shrink-0">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
@@ -337,13 +339,13 @@ const ctaContent = {
         </article>
 
         <!-- Inline CTA -->
-        <div class="bg-slate-900 rounded-2xl p-8 border border-slate-800 mt-12">
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 mt-12">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <h3 class="text-xl font-bold text-white mb-2">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
                 Need Help with {service.name}?
               </h3>
-              <p class="text-gray-300">
+              <p class="text-gray-600">
                 Our {site.city} experts are ready to assist you.
               </p>
             </div>
@@ -443,18 +445,18 @@ const ctaContent = {
     <section class="py-12 md:py-16 bg-white">
       <div class="max-w-4xl mx-auto px-5 sm:px-8">
         
-        <div class="bg-slate-900 rounded-2xl p-8 md:p-12 text-center">
+        <div class="bg-primary-600 rounded-2xl p-8 md:p-12 text-center">
           <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
             Ready for Professional {service.name}?
           </h2>
-          <p class="text-gray-300 mb-8 text-lg max-w-2xl mx-auto">
+          <p class="text-primary-100 mb-8 text-lg max-w-2xl mx-auto">
             Now that you understand {article.title.toLowerCase()}, let our {site.city} experts put that knowledge to work for you.
           </p>
           
           <!-- CTA with EXACT-MATCH anchor to Silo Head -->
           <a 
             href={siloHeadUrl}
-            class="inline-flex items-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"
+            class="inline-flex items-center gap-2 bg-white text-primary-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors text-lg"
           >
             <span>{siloHeadAnchor}</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -496,7 +498,7 @@ const ctaContent = {
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            <span>Free Estimates</span>
+            <span>Free Assessments</span>
           </div>
           <div class="flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
