@@ -112,10 +112,10 @@ const ctaContent = {
          BREADCRUMB - Link UP to Hub (Kyle Roof)
          ========================================== -->
     <nav class="bg-gray-50 border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 overflow-x-auto">
         <a 
           href="/"
-          class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors"
+          class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors whitespace-nowrap text-xs sm:text-sm"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -128,7 +128,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 1: HERO
          ========================================== -->
-    <section class="hero-section py-16 md:py-20">
+    <section class="hero-section pt-8 pb-12 md:pt-10 md:pb-16">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         <div class="grid lg:grid-cols-5 gap-12 items-center">
           
@@ -343,17 +343,17 @@ const ctaContent = {
               href={`/services/${service.slug}-${neighborhood.slug}`}
               class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all group"
             >
-              <!-- Service Icon -->
-              <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4 group-hover:bg-primary-600 transition-colors">
-                <svg class="w-6 h-6 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+              <!-- Icon + Title Row -->
+              <div class="flex items-start gap-4 mb-4">
+                <div class="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 transition-colors">
+                  <svg class="w-4 h-4 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 pt-1 group-hover:text-primary-600 transition-colors">
+                  {service.name}
+                </h3>
               </div>
-              
-              <!-- Service Name -->
-              <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                {service.name}
-              </h3>
               
               <!-- Location Context -->
               <p class="text-gray-600 mb-4">

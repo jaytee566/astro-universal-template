@@ -17,17 +17,17 @@ export const site = {
   rating: "4.9",
   reviewCount: "500+",
   yearsInBusiness: "15",
-  niche: "Home Services",
-  nicheLowercase: "home services",
+  niche: "Luxury Pool & Outdoor Living",
+  nicheLowercase: "luxury pool & outdoor living",
   theme: "premium" as const,
-  hubSlug: "austin-home-services",
+  hubSlug: "austin-luxury-pool-outdoor",
 };
 
-// Services for Silo Architecture
+// Services for Silo Architecture (Luxury / Premium)
 export const services = [
-  { slug: 'general-maintenance', name: 'General Maintenance' },
-  { slug: 'appliance-repair', name: 'Appliance Repair' },
-  { slug: 'emergency-services', name: 'Emergency Services' },
+  { slug: 'custom-pool-design', name: 'Custom Pool Design' },
+  { slug: 'pool-resurfacing', name: 'Pool Resurfacing' },
+  { slug: 'outdoor-living-spaces', name: 'Outdoor Living Spaces' },
 ];
 
 // Neighborhoods

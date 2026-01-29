@@ -20,57 +20,57 @@ export async function getStaticPaths() {
     { slug: 'west-austin', name: 'West Austin' },
   ];
 
-  // Sample services
+  // Luxury pool & outdoor living services
   const services = [
     {
-      slug: 'general-maintenance',
-      name: 'General Maintenance',
-      description: 'Comprehensive maintenance services to keep your property in top condition.',
+      slug: 'custom-pool-design',
+      name: 'Custom Pool Design',
+      description: 'Transform your backyard with award-winning custom pool designs.',
       benefits: [
-        'Prevent costly repairs',
-        'Extend equipment lifespan',
-        'Maintain property value',
-        'Peace of mind',
+        'Award-winning design expertise',
+        'Bespoke layouts and features',
+        'Premium materials and finishes',
+        'Seamless project management',
       ],
       process: [
-        { step: 'Inspection', description: 'Thorough assessment of your property' },
-        { step: 'Diagnosis', description: 'Identify issues and maintenance needs' },
-        { step: 'Service', description: 'Professional maintenance work' },
-        { step: 'Verification', description: 'Quality check and documentation' },
+        { step: 'Consultation', description: 'Complimentary consultation to understand your vision' },
+        { step: 'Design', description: 'Curated design concepts tailored to your property' },
+        { step: 'Refinement', description: 'Collaborative refinement until every detail is perfect' },
+        { step: 'Reveal', description: 'Elegant execution and final reveal' },
       ],
     },
     {
-      slug: 'appliance-repair',
-      name: 'Appliance Repair',
-      description: 'Expert appliance repair services for all major brands and models.',
+      slug: 'pool-resurfacing',
+      name: 'Pool Resurfacing',
+      description: "Restore your pool's beauty with premium resurfacing solutions.",
       benefits: [
-        'Same-day service available',
-        'All major brands serviced',
-        'Parts and labor warranty',
-        'Certified technicians',
+        'Premium resurfacing materials',
+        'Extended pool lifespan',
+        'Enhanced aesthetics',
+        'Meticulous craftsmanship',
       ],
       process: [
-        { step: 'Diagnose', description: 'Identify the problem quickly' },
-        { step: 'Quote', description: 'Transparent pricing estimate' },
-        { step: 'Repair', description: 'Professional fix with quality parts' },
-        { step: 'Test', description: 'Verify everything works perfectly' },
+        { step: 'Assessment', description: 'Thorough evaluation of your pool condition' },
+        { step: 'Curated Options', description: 'Premium finish options presented for your selection' },
+        { step: 'Preparation', description: 'Expert surface preparation and attention to detail' },
+        { step: 'Restoration', description: 'Flawless application and final finish' },
       ],
     },
     {
-      slug: 'emergency-services',
-      name: 'Emergency Services',
-      description: 'Fast response emergency services available 24/7.',
+      slug: 'outdoor-living-spaces',
+      name: 'Outdoor Living Spaces',
+      description: 'Create stunning outdoor kitchens, patios, and entertainment areas.',
       benefits: [
-        '24/7 availability',
-        'Rapid response times',
-        'Experienced technicians',
-        'Minimize damage',
+        'Stunning outdoor kitchens',
+        'Elegant patios and hardscape',
+        'Entertainment-ready spaces',
+        'Cohesive design vision',
       ],
       process: [
-        { step: 'Call', description: 'Contact us immediately' },
-        { step: 'Dispatch', description: 'Technician en route quickly' },
-        { step: 'Stabilize', description: 'Stop damage and secure property' },
-        { step: 'Restore', description: 'Complete restoration plan' },
+        { step: 'Vision', description: 'Complimentary consultation to define your outdoor vision' },
+        { step: 'Design', description: 'Curated plans for kitchens, patios, and gathering areas' },
+        { step: 'Build', description: 'Premium materials and expert craftsmanship' },
+        { step: 'Reveal', description: 'Your new outdoor living space, ready to enjoy' },
       ],
     },
   ];
@@ -130,7 +130,7 @@ const processContent = {
 };
 
 const faqContent = {
-  headline: `${service.name} FAQ`,
+  headline: service.slug === 'emergency-services' ? 'FAQ' : `${service.name} FAQ`,
   questions: [
     { 
       q: `How much does ${service.name.toLowerCase()} cost in ${neighborhood.name}?`, 
@@ -166,24 +166,24 @@ const ctaContent = {
          Links UP to Silo Head with exact-match anchor
          ========================================== -->
     <nav class="bg-gray-50 border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
-        <ol class="flex items-center gap-2 text-sm">
-          <li>
-            <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 overflow-x-auto">
+        <ol class="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm whitespace-nowrap">
+          <li class="whitespace-nowrap">
+            <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap">
               Home
             </a>
           </li>
-          <li class="text-gray-400">/</li>
-          <li>
+          <li class="text-gray-400 whitespace-nowrap">/</li>
+          <li class="whitespace-nowrap">
             <a
               href={`/${service.slug}-${site.citySlug}`}
-              class="text-gray-600 hover:text-primary-600 transition-colors"
+              class="text-gray-600 hover:text-primary-600 transition-colors whitespace-nowrap"
             >
               {service.name} Austin TX
             </a>
           </li>
-          <li class="text-gray-400">/</li>
-          <li class="text-gray-900 font-medium">
+          <li class="text-gray-400 whitespace-nowrap">/</li>
+          <li class="text-gray-900 font-medium whitespace-nowrap">
             {neighborhood.name}
           </li>
         </ol>
@@ -193,7 +193,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 1: HERO
          ========================================== -->
-    <section class="hero-section py-16 md:py-20">
+    <section class="hero-section py-12 md:py-16">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <div class="grid lg:grid-cols-5 gap-12 items-center">
@@ -297,15 +297,15 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 2: BENEFITS
          ========================================== -->
-    <section class="py-16 md:py-20 bg-gray-50">
+    <section class="py-12 md:py-16 bg-gray-50">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <!-- Section Header -->
-        <div class="text-center mb-12">
+        <div class="mb-10">
           <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             {benefitsContent.headline}
           </h2>
-          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p class="text-xl text-gray-600 max-w-2xl">
             {benefitsContent.subheadline}
           </p>
         </div>
@@ -313,13 +313,15 @@ const ctaContent = {
         <!-- Benefits Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {service.benefits.map((benefit) => (
-            <div class="bg-white rounded-2xl p-6 border border-gray-200 text-center hover:shadow-lg hover:border-primary-500 transition-all">
-              <div class="w-14 h-14 rounded-xl bg-primary-100 flex items-center justify-center mx-auto mb-4">
-                <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
+            <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg hover:border-primary-500 transition-all text-left">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-3 h-3 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 pt-0.5">{benefit}</h3>
               </div>
-              <h3 class="text-lg font-bold text-gray-900">{benefit}</h3>
             </div>
           ))}
         </div>
@@ -372,12 +374,12 @@ const ctaContent = {
          SECTION 4: WHY CHOOSE US FOR THIS SERVICE
          ========================================== -->
     <section class="py-16 md:py-20 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
         
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           
           <!-- Left: Content -->
-          <div>
+          <div class="min-w-0">
             <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
               Why Choose Us for {service.name} in {neighborhood.name}
             </h2>
@@ -450,9 +452,9 @@ const ctaContent = {
               </a>
               <a
                 href={`/${service.slug}-${site.citySlug}`}
-                class="inline-flex items-center justify-center gap-2 bg-white border-2 border-primary-600 text-primary-600 hover:bg-primary-50 font-bold px-8 py-4 rounded-xl transition-colors"
+                class="inline-flex items-center justify-center gap-2 bg-white border-2 border-primary-600 text-primary-600 hover:bg-primary-50 font-bold px-8 py-4 rounded-xl transition-colors whitespace-nowrap"
               >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span>{service.name} Austin TX</span>
@@ -461,7 +463,7 @@ const ctaContent = {
           </div>
 
           <!-- Right: Stats Card -->
-          <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
+          <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg min-w-0">
             <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">
               {site.businessName} by the Numbers
             </h3>

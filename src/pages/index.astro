@@ -9,19 +9,19 @@ import { site, services, neighborhoods } from '../config/site';
 // PAGE METADATA
 // ============================================
 const pageData = {
-  metaTitle: `${site.niche} Services in ${site.city}, ${site.state} | ${site.businessName}`,
-  metaDescription: `Premium ${site.nicheLowercase} in ${site.city}, ${site.state}. Licensed experts, ${site.rating}-star rated, ${site.yearsInBusiness} years of craftsmanship. Call ${site.phone} to schedule a complimentary consultation.`,
+  metaTitle: `${site.niche} in ${site.city}, ${site.state} | ${site.businessName}`,
+  metaDescription: `Award-winning ${site.nicheLowercase} in ${site.city}, ${site.state}. Curated designs, ${site.rating}-star rated, ${site.yearsInBusiness} years of excellence. Call ${site.phone} to schedule your complimentary consultation.`,
 };
 
 // ============================================
 // HERO SECTION CONTENT
 // ============================================
 const heroContent = {
-  badge: `Luxury ${site.niche}`,
-  headline: `${site.city} Luxury Home Services`,
-  subheadline: `Custom, premium ${site.nicheLowercase} in ${site.city}, ${site.state}. Tailored solutions for custom pools, luxury renovations, and full estate management.`,
+  badge: site.niche,
+  headline: `${site.city} Luxury Pool & Outdoor Living`,
+  subheadline: `Curated, award-winning ${site.nicheLowercase} in ${site.city}, ${site.state}. Bespoke pool design, premium resurfacing, and stunning outdoor living spaces.`,
   image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=400&fit=crop',
-  imageAlt: `Professional ${site.nicheLowercase} services in ${site.city}`,
+  imageAlt: `Luxury ${site.nicheLowercase} in ${site.city}`,
   trustBadges: ['Licensed & Bonded', 'Award-Winning Design', 'Premium Materials', 'Satisfaction Guaranteed'],
 };
 
@@ -29,26 +29,26 @@ const heroContent = {
 // SERVICES GRID SECTION - Links DOWN to Silo Heads
 // ============================================
 const servicesContent = {
-  headline: 'Our Services',
-  subheadline: 'Professional solutions for all your home service needs',
+  headline: 'Curated Services',
+  subheadline: 'Award-winning design and craftsmanship for discerning clients',
   services: [
     {
-      title: 'General Maintenance',
-      slug: 'general-maintenance',
-      description: 'Keep your property in top condition with regular maintenance and repairs.',
-      icon: 'tools',
+      title: 'Custom Pool Design',
+      slug: 'custom-pool-design',
+      description: 'Transform your backyard with award-winning custom pool designs.',
+      icon: 'pool',
     },
     {
-      title: 'Appliance Repair',
-      slug: 'appliance-repair',
-      description: 'Expert appliance repair services for all major brands and models.',
-      icon: 'cog',
+      title: 'Pool Resurfacing',
+      slug: 'pool-resurfacing',
+      description: "Restore your pool's beauty with premium resurfacing solutions.",
+      icon: 'resurface',
     },
     {
-      title: 'Emergency Services',
-      slug: 'emergency-services',
-      description: '24/7 emergency response for urgent repairs when you need help fast.',
-      icon: 'lightning',
+      title: 'Outdoor Living Spaces',
+      slug: 'outdoor-living-spaces',
+      description: 'Create stunning outdoor kitchens, patios, and entertainment areas.',
+      icon: 'outdoor',
     },
   ],
 };
@@ -57,37 +57,37 @@ const servicesContent = {
 // ABOUT PREVIEW SECTION
 // ============================================
 const aboutContent = {
-  headline: `Trusted ${site.city} Professionals`,
-  subheadline: `${site.yearsInBusiness} years of quality service`,
-  description: `${site.businessName} has been serving ${site.city} for over ${site.yearsInBusiness} years. Our team of licensed professionals is committed to delivering exceptional service with a focus on quality, reliability, and customer satisfaction. We're proud to be your trusted local experts.`,
-  image: 'https://images.pexels.com/photos/1266025/pexels-photo-1266025.jpeg?w=500&h=400&fit=crop',
-  imageAlt: 'Professional team at work',
+  headline: `Award-Winning ${site.city} Design & Build`,
+  subheadline: `${site.yearsInBusiness} years of excellence`,
+  description: `${site.businessName} has been serving ${site.city}'s finest homes for over ${site.yearsInBusiness} years. Our team delivers curated pool and outdoor living experiences with meticulous attention to detail, premium materials, and a commitment to exceeding expectations.`,
+  image: 'https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?w=500&h=400&fit=crop',
+  imageAlt: 'Luxury pool and outdoor living design team',
 };
 
 // ============================================
 // TESTIMONIALS SECTION
 // ============================================
 const testimonialsContent = {
-  headline: 'What Our Customers Say',
-  subheadline: 'Real reviews from real customers',
+  headline: 'What Our Clients Say',
+  subheadline: 'From discerning homeowners across Austin',
   testimonials: [
     {
       name: 'Sarah Johnson',
       location: 'Downtown Austin',
       rating: 5,
-      text: 'Excellent service from start to finish. The team was professional, punctual, and did outstanding work. Highly recommend!',
+      text: 'From our complimentary consultation to the final reveal, the experience was exceptional. The pool design exceeded our vision.',
     },
     {
       name: 'Michael Chen',
       location: 'North Austin',
       rating: 5,
-      text: 'Very impressed with the quality of work and attention to detail. They exceeded my expectations and stayed within budget.',
+      text: 'The attention to detail and premium materials made all the difference. Our outdoor living space is now the heart of our home.',
     },
     {
       name: 'Emily Rodriguez',
       location: 'South Austin',
       rating: 5,
-      text: 'Fast, reliable, and affordable. The technician was knowledgeable and took time to explain everything. Will definitely use again!',
+      text: 'Professional, elegant, and delivered on every promise. The resurfacing transformed our pool—we could not be more pleased.',
     },
   ],
 };
@@ -141,8 +141,8 @@ const faqContent = {
       a: `We serve ${site.city} and all surrounding neighborhoods within ${site.serviceArea}.` 
     },
     { 
-      q: 'How do I schedule service?', 
-      a: 'Call us or fill out the contact form to schedule a convenient time.' 
+      q: 'How do I schedule a consultation?', 
+      a: 'Schedule your complimentary consultation by calling us or completing our contact form.' 
     },
     { 
       q: 'Do you offer warranties?', 
@@ -156,85 +156,72 @@ const faqContent = {
 // FINAL CTA SECTION
 // ============================================
 const ctaContent = {
-  headline: 'Ready to Get Started?',
-  subheadline: `Contact us today to discuss a custom, premium plan for your property.`,
+  headline: 'Ready to Begin?',
+  subheadline: `Schedule your complimentary consultation to discuss a curated plan for your property.`,
 };
 ---
 
 <Layout title={pageData.metaTitle} description={pageData.metaDescription}>
   <div class="bg-[color:var(--color-surface)] text-gray-700">
-    <Header />
+    <Header hideMainBar={true} />
 
     <!-- ==========================================
          SECTION 1: HERO - PREMIUM LUXURY
          ========================================== -->
-    <section class="hero-section pt-10 pb-14 md:py-24">
+    <section class="hero-section hero-section-blue pt-4 pb-6 sm:pt-6 sm:pb-8 md:py-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-5 lg:px-8">
-        <div class="grid lg:grid-cols-5 gap-12 items-center">
+        <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
 
           <!-- Left Column: Content -->
-          <div class="lg:col-span-3">
-
-            <!-- Luxury Badge -->
-            <div class="inline-flex items-center gap-2 bg-accent-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-4 shadow-sm">
-              <span>✨ Luxury Service</span>
-            </div>
+          <div class="lg:col-span-3 min-w-0">
 
             <!-- Headline -->
-            <h1 class="hero-heading text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Bespoke Home Services for {site.city}'s Finest Homes
+            <h1 class="hero-heading text-4xl sm:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight text-white">
+              Luxury Pool & Outdoor Living for {site.city}'s Finest Homes
             </h1>
 
             <!-- Subhead -->
-            <p class="hero-subheading text-base sm:text-lg mb-6 max-w-2xl">
-              From custom pools and luxury renovations to full estate management, our licensed experts deliver tailored, premium service with meticulous attention to detail.
+            <p class="hero-subheading text-sm sm:text-base md:text-lg mb-4 sm:mb-6 max-w-2xl text-white">
+              Curated pool design, premium resurfacing, and stunning outdoor living spaces. Our award-winning team delivers bespoke experiences with meticulous attention to detail.
             </p>
 
-            <!-- Trust Logos Row -->
-            <div class="mb-6">
-              <p class="text-sm font-semibold text-slate-600 mb-3">
-                Trusted by Austin's finest homes
-              </p>
-              <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm">
-                <span class="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-slate-700 shadow-sm">
-                  <span class="font-semibold">BBB A+ Rated</span>
-                </span>
-                <span class="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-slate-700 shadow-sm">
-                  <span class="font-semibold">Houzz Best of 2024</span>
-                </span>
-                <span class="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-slate-700 shadow-sm">
-                  <span class="font-semibold">10+ Years Experience</span>
-                </span>
+            <!-- Trust badges - one column so they fit on mobile -->
+            <div class="mb-4 sm:mb-6 flex flex-col gap-2 text-xs sm:text-sm">
+              <span class="text-white font-semibold">Trusted by Austin's finest homes</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-white font-semibold">BBB A+ Rated</span>
+                <span class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-white font-semibold">Houzz Best of 2024</span>
+                <span class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-white font-semibold">10+ Years Experience</span>
               </div>
             </div>
 
             <!-- CTAs -->
-            <div class="flex flex-col sm:flex-row gap-3">
+            <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
               <a
                 href={`tel:${site.phoneLink}`}
-                class="w-full sm:flex-1 inline-flex items-center justify-center gap-2.5 bg-accent-600 hover:bg-accent-700 text-white font-semibold px-8 py-4 rounded-xl transition-colors shadow-lg hover:shadow-xl text-lg btn-cta"
+                class="w-full sm:flex-1 inline-flex items-center justify-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-semibold px-4 py-3 sm:px-6 sm:py-4 rounded-xl transition-colors shadow-lg hover:shadow-xl text-sm sm:text-base md:text-lg btn-cta"
               >
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span>Schedule Your Consultation</span>
+                <span class="whitespace-nowrap">Schedule Your Consultation</span>
               </a>
 
               <a
                 href="/about"
-                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border-2 border-primary-600 text-primary-700 hover:bg-primary-600 hover:text-white font-semibold px-8 py-4 rounded-xl transition-colors text-lg"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/80 text-white hover:bg-white hover:text-primary-700 font-semibold px-4 py-3 sm:px-6 sm:py-4 rounded-xl transition-colors text-sm sm:text-base md:text-lg"
               >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <span>View Our Portfolio</span>
+                <span class="whitespace-nowrap">View Our Portfolio</span>
               </a>
             </div>
 
             <!-- Phone Number Text Link (visible on mobile) -->
-            <p class="mt-4 text-center sm:text-left text-sm text-gray-600 md:hidden">
+            <p class="mt-3 sm:mt-4 text-center sm:text-left text-xs sm:text-sm text-white/80 md:hidden">
               Prefer to talk through options? Call us at{' '}
-              <a href={`tel:${site.phoneLink}`} class="font-bold phone-link">{site.phone}</a>
+              <a href={`tel:${site.phoneLink}`} class="font-bold text-white underline">{site.phone}</a>
             </p>
 
           </div>
@@ -272,11 +259,11 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 2: SERVICES GRID
          ========================================== -->
-    <section class="py-16 md:py-24 bg-white">
+    <section class="py-10 md:py-16 bg-white">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
 
         <!-- Section Header -->
-        <div class="text-center mb-12">
+        <div class="text-center mb-8">
           <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             {servicesContent.headline}
           </h2>
@@ -286,35 +273,36 @@ const ctaContent = {
         </div>
 
         <!-- Services Grid -->
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-3 gap-6">
           {servicesContent.services.map((service) => (
             <a
               href={`/${service.slug}-${site.citySlug}`}
-              class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:shadow-xl hover:border-primary-600 transition-all group"
+              class="bg-white rounded-2xl p-6 border-2 border-gray-200 hover:shadow-xl hover:border-primary-600 transition-all group"
             >
-              <!-- Icon -->
-              <div class="w-14 h-14 rounded-xl bg-primary-100 flex items-center justify-center mb-6 group-hover:bg-primary-600 transition-colors">
-                {service.icon === 'tools' && (
-                  <svg class="w-7 h-7 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-                  </svg>
-                )}
-                {service.icon === 'lightning' && (
-                  <svg class="w-7 h-7 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                )}
-                {service.icon === 'cog' && (
-                  <svg class="w-7 h-7 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                )}
+              <!-- Icon + Title Row -->
+              <div class="flex items-start gap-4 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 transition-colors">
+                  {service.icon === 'pool' && (
+                    <svg class="w-4 h-4 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0L12 2.69z" />
+                    </svg>
+                  )}
+                  {service.icon === 'resurface' && (
+                    <svg class="w-4 h-4 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                  )}
+                  {service.icon === 'outdoor' && (
+                    <svg class="w-4 h-4 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  )}
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 pt-1 group-hover:text-primary-600 transition-colors">
+                  {service.title}
+                </h3>
               </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
-                {service.title}
-              </h3>
-              <p class="text-gray-600 mb-4">{service.description}</p>
+              <p class="text-gray-600 mb-3">{service.description}</p>
               <span class="text-primary-600 font-semibold inline-flex items-center gap-2">
                 Learn More
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -412,12 +400,17 @@ const ctaContent = {
         </div>
 
         <!-- Don't See Your Area -->
-        <p class="text-center mt-8 text-gray-600">
-          Don't see your area? Call us at{' '}
-          <a href={`tel:${site.phoneLink}`} class="text-blue-600 underline hover:text-blue-700">
-            {site.phone}
+        <div class="text-center mt-8">
+          <a
+            href={`tel:${site.phoneLink}`}
+            class="inline-flex items-center justify-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-bold px-6 py-3 rounded-xl transition-colors no-underline"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            Don't see your area? Call us at {site.phone}
           </a>
-        </p>
+        </div>
 
       </div>
     </section>
@@ -558,28 +551,28 @@ const ctaContent = {
         <!-- Trust Badges -->
         <div class="flex flex-wrap justify-center gap-6 mt-8 text-gray-300">
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            <span>✓ Licensed &amp; Bonded</span>
+            <span>Licensed &amp; Bonded</span>
           </div>
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            <span>✓ Award-Winning Design</span>
+            <span>Award-Winning Design</span>
           </div>
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            <span>✓ Premium Materials</span>
+            <span>Premium Materials</span>
           </div>
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            <span>✓ Satisfaction Guaranteed</span>
+            <span>Satisfaction Guaranteed</span>
           </div>
         </div>
 
