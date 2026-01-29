@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyMobileCTA from '../components/StickyMobileCTA.astro';
+import TrustBadges from '../components/TrustBadges.astro';
 import { site } from '../config/site';
 
 // ============================================
@@ -233,6 +234,9 @@ const ctaContent = {
           </svg>
           <span>{site.phone}</span>
         </a>
+
+        <!-- Trust Badges -->
+        <TrustBadges />
 
       </div>
     </section>
