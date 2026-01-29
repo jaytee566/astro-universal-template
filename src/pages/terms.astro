@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../config/site';
 
@@ -17,7 +16,6 @@ const lastUpdated = 'January 1, 2024';
 
 <Layout title={pageData.metaTitle} description={pageData.metaDescription}>
   <div class="bg-white text-gray-700">
-    <Header />
 
     <!-- ==========================================
          TERMS OF SERVICE CONTENT

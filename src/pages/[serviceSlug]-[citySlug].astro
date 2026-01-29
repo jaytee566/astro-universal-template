@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyMobileCTA from '../components/StickyMobileCTA.astro';
 import { site, services as siteServices, neighborhoods } from '../config/site';
@@ -14,93 +13,93 @@ export async function getStaticPaths() {
   // Services with their support articles (for linking DOWN into silo)
   const servicesData = [
     {
-      slug: 'general-maintenance',
-      name: 'General Maintenance',
-      description: 'Comprehensive maintenance services to keep your property in optimal condition. Our expert team handles all aspects of property maintenance, from routine inspections to preventive care.',
+      slug: 'water-extraction',
+      name: 'Water Extraction',
+      description: 'Emergency water removal using industrial-grade extraction equipment to prevent further damage. Our certified technicians respond within 30 minutes to extract standing water and begin the drying process.',
       supportArticles: [
-        { slug: 'complete-guide', title: 'Complete Guide to General Maintenance' },
-        { slug: 'cost-factors', title: 'General Maintenance Cost Factors' },
-        { slug: 'diy-vs-professional', title: 'DIY vs Professional Maintenance' },
+        { slug: 'complete-guide', title: 'Complete Guide to Water Extraction' },
+        { slug: 'cost-factors', title: 'Water Extraction Cost Factors' },
+        { slug: 'diy-vs-professional', title: 'DIY vs Professional Water Extraction' },
       ],
       benefits: [
-        { text: 'Prevent costly emergency repairs', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
-        { text: 'Extend equipment and system lifespan', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
-        { text: 'Maintain property value', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
-        { text: 'Ensure safety and compliance', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
-        { text: 'Peace of mind for homeowners', icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z' },
-        { text: 'Scheduled service at your convenience', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
+        { text: '30-minute emergency response time', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+        { text: 'Industrial extraction equipment', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
+        { text: '24/7 emergency availability', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
+        { text: 'Direct insurance billing', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+        { text: 'Prevent mold and structural damage', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+        { text: 'IICRC certified technicians', icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' },
       ],
       process: [
-        { step: 'Assessment', title: 'Property Assessment', description: 'We conduct a thorough evaluation of your property to identify maintenance needs and potential issues before they become problems.' },
-        { step: 'Plan', title: 'Custom Plan', description: 'Based on our assessment, we create a tailored maintenance plan that addresses your specific needs and budget.' },
-        { step: 'Execute', title: 'Expert Service', description: 'Our licensed technicians perform all maintenance work using professional-grade tools and techniques.' },
-        { step: 'Document', title: 'Documentation', description: 'We provide detailed reports of all work completed and recommendations for future maintenance.' },
+        { step: 'Assessment', title: 'Damage Assessment', description: 'We inspect the extent of water damage and classify the water type (clean, gray, or black) to determine proper extraction methods.' },
+        { step: 'Extraction', title: 'Water Removal', description: 'Using industrial extractors and pumps, we remove standing water immediately to minimize damage.' },
+        { step: 'Drying', title: 'Structural Drying', description: 'Industrial dehumidifiers and air movers dry affected areas completely, preventing mold growth.' },
+        { step: 'Restoration', title: 'Complete Restoration', description: 'We restore your property to pre-damage condition with repairs, cleaning, and sanitization.' },
       ],
       pricingFactors: [
-        { factor: 'Property Size', description: 'Larger properties require more time and resources for comprehensive maintenance.' },
-        { factor: 'Service Frequency', description: 'Regular scheduled maintenance is more cost-effective than one-time deep service.' },
-        { factor: 'Current Condition', description: 'Properties that have been neglected may require additional initial work.' },
-        { factor: 'Specific Needs', description: 'Specialized equipment or systems may require additional expertise.' },
+        { factor: 'Water Volume', description: 'Amount of standing water and affected area size impacts extraction time and equipment needed.' },
+        { factor: 'Water Classification', description: 'Clean, gray, or black water requires different safety protocols and disposal methods.' },
+        { factor: 'Materials Affected', description: 'Carpet, hardwood, drywall, and other materials require different drying techniques.' },
+        { factor: 'Drying Time', description: 'Severity of saturation determines how long equipment must run and monitoring required.' },
       ],
     },
     {
-      slug: 'appliance-repair',
-      name: 'Appliance Repair',
-      description: 'Expert appliance repair services for all major brands and models. From refrigerators to dishwashers, we fix it right the first time with parts and labor warranties.',
+      slug: 'flood-damage-repair',
+      name: 'Flood Damage Repair',
+      description: 'Complete flood damage restoration including structural repairs, mold remediation, and property restoration. We handle everything from insurance claims to final reconstruction.',
       supportArticles: [
-        { slug: 'complete-guide', title: 'Complete Guide to Appliance Repair' },
-        { slug: 'cost-factors', title: 'Appliance Repair Cost Factors' },
-        { slug: 'diy-vs-professional', title: 'DIY vs Professional Repair' },
+        { slug: 'complete-guide', title: 'Complete Guide to Flood Damage Repair' },
+        { slug: 'cost-factors', title: 'Flood Damage Repair Cost Factors' },
+        { slug: 'diy-vs-professional', title: 'DIY vs Professional Flood Repair' },
       ],
       benefits: [
-        { text: 'Same-day service available', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
-        { text: 'All major brands serviced', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
-        { text: 'Parts and labor warranty', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
-        { text: 'Certified technicians', icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' },
-        { text: 'Transparent pricing', icon: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z' },
-        { text: 'Save money vs replacement', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+        { text: 'Complete structural repairs', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
+        { text: 'Mold prevention and remediation', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+        { text: 'Insurance claim assistance', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+        { text: 'Licensed general contractors', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
+        { text: 'Content pack-out and storage', icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4' },
+        { text: 'Odor removal and sanitization', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
       ],
       process: [
-        { step: 'Diagnose', title: 'Expert Diagnosis', description: 'We quickly identify the problem with your appliance using advanced diagnostic tools and years of experience.' },
-        { step: 'Quote', title: 'Transparent Quote', description: 'You receive a detailed estimate before any work begins, with no hidden fees or surprises.' },
-        { step: 'Repair', title: 'Professional Repair', description: 'Our certified technicians complete repairs efficiently using quality OEM or compatible parts.' },
-        { step: 'Test', title: 'Quality Testing', description: 'We thoroughly test the appliance to ensure it works perfectly before we leave your property.' },
+        { step: 'Inspection', title: 'Comprehensive Assessment', description: 'We document all flood damage with photos, moisture readings, and detailed reports for insurance claims.' },
+        { step: 'Mitigation', title: 'Water Mitigation', description: 'Remove water, dry structure, and prevent further damage while planning full restoration.' },
+        { step: 'Restoration', title: 'Rebuild and Repair', description: 'Replace drywall, flooring, trim, and all damaged materials to restore your property.' },
+        { step: 'Verification', title: 'Quality Inspection', description: 'Final inspection ensures all work meets code requirements and industry standards.' },
       ],
       pricingFactors: [
-        { factor: 'Appliance Type', description: 'Different appliances have varying complexity and parts availability.' },
-        { factor: 'Parts Required', description: 'Replacement parts costs vary by brand and model specifications.' },
-        { factor: 'Labor Complexity', description: 'Some repairs require more time and specialized expertise than others.' },
-        { factor: 'Warranty Coverage', description: 'Manufacturer warranty may cover parts or labor depending on appliance age.' },
+        { factor: 'Extent of Damage', description: 'Square footage affected and depth of water penetration into structure.' },
+        { factor: 'Materials Damaged', description: 'Flooring, drywall, insulation, cabinetry, and fixtures that require replacement.' },
+        { factor: 'Mold Remediation', description: 'Additional work required if mold has developed due to prolonged moisture.' },
+        { factor: 'Reconstruction Scope', description: 'Level of rebuilding required from cosmetic repairs to full gut renovation.' },
       ],
     },
     {
-      slug: 'emergency-services',
-      name: 'Emergency Services',
-      description: 'Fast-response emergency services available 24/7. When disaster strikes, our team is ready to respond immediately to minimize damage and restore your property.',
+      slug: 'emergency-water-removal',
+      name: 'Emergency Water Removal',
+      description: 'Immediate response for burst pipes, flooding, and water emergencies 24/7. Our emergency team arrives within 30 minutes to stop water damage and begin restoration.',
       supportArticles: [
-        { slug: 'complete-guide', title: 'Complete Guide to Emergency Services' },
-        { slug: 'cost-factors', title: 'Emergency Service Cost Factors' },
+        { slug: 'complete-guide', title: 'Complete Guide to Emergency Water Removal' },
+        { slug: 'cost-factors', title: 'Emergency Water Removal Cost Factors' },
         { slug: 'diy-vs-professional', title: 'DIY vs Professional Emergency Response' },
       ],
       benefits: [
-        { text: '24/7 availability for emergencies', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
-        { text: 'Rapid response times', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+        { text: 'Immediate response 24/7/365', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
+        { text: 'Stop water damage fast', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+        { text: 'Advanced drying technology', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
         { text: 'Minimize property damage', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
-        { text: 'Experienced emergency technicians', icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' },
-        { text: 'Insurance claim assistance', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
-        { text: 'Temporary solutions while planning permanent fixes', icon: 'M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z' },
+        { text: 'Work directly with insurance', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+        { text: 'Emergency board-up services', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' },
       ],
       process: [
-        { step: 'Call', title: 'Emergency Call', description: 'Call our 24/7 hotline and speak with a live dispatcher who will assess your situation immediately.' },
-        { step: 'Dispatch', title: 'Rapid Dispatch', description: 'We dispatch the nearest available technician to your location, typically within 60 minutes.' },
-        { step: 'Stabilize', title: 'Stabilization', description: 'Our first priority is stopping the damage and stabilizing your property to prevent further issues.' },
-        { step: 'Restore', title: 'Full Restoration', description: 'Once stabilized, we develop and execute a complete restoration plan.' },
+        { step: 'Emergency Call', title: '24/7 Hotline', description: 'Call our emergency hotline any time, day or night. Live dispatcher assesses your situation and dispatches a team.' },
+        { step: 'Rapid Dispatch', title: '30-Minute Arrival', description: 'Emergency team arrives within 30 minutes with industrial extraction and drying equipment.' },
+        { step: 'Water Removal', title: 'Immediate Extraction', description: 'Extract standing water, stop the source if possible, and begin structural drying process.' },
+        { step: 'Full Restoration', title: 'Complete Repair', description: 'Follow through with complete restoration including repairs, cleaning, and final inspection.' },
       ],
       pricingFactors: [
-        { factor: 'Time of Service', description: 'After-hours, weekend, and holiday calls may have different rates.' },
-        { factor: 'Severity', description: 'The extent of damage and complexity of repairs affects overall cost.' },
-        { factor: 'Materials Needed', description: 'Emergency repairs may require expedited material procurement.' },
-        { factor: 'Follow-up Work', description: 'Some emergencies require subsequent repairs once immediate issues are resolved.' },
+        { factor: 'Response Time', description: 'Emergency response pricing for immediate dispatch and after-hours service.' },
+        { factor: 'Source Mitigation', description: 'Stopping burst pipes or water source may require plumbing or other emergency repairs.' },
+        { factor: 'Equipment Deployment', description: 'Industrial extractors, dehumidifiers, and air movers deployed for rapid drying.' },
+        { factor: 'Monitoring Required', description: 'Daily moisture monitoring and equipment adjustments until completely dry.' },
       ],
     },
   ];
@@ -211,7 +210,6 @@ const ctaContent = {
 
 <Layout title={pageData.metaTitle} description={pageData.metaDescription}>
   <div class="bg-white text-gray-700">
-    <Header />
 
     <!-- NO BREADCRUMB - Silo Head is the TOP of its silo (Kyle Roof) -->
 

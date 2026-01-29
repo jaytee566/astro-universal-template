@@ -2,12 +2,12 @@
 // Change these values to update the entire site
 
 export const site = {
-  businessName: "Austin Pro Services",
-  tagline: "Quality Service, Guaranteed",
+  businessName: "Austin Water Damage Pros",
+  tagline: "24/7 Emergency Response",
   phone: "(512) 555-0123",
   phoneLink: "5125550123",
-  email: "info@austinproservices.com",
-  domain: "austinproservices.com",
+  email: "info@austinwaterdamagepros.com",
+  domain: "austinwaterdamagepros.com",
   city: "Austin",
   citySlug: "austin",
   state: "TX",
@@ -17,17 +17,17 @@ export const site = {
   rating: "4.9",
   reviewCount: "500+",
   yearsInBusiness: "15",
-  niche: "Home Services",
-  nicheLowercase: "home services",
-  theme: "standard" as const,
-  hubSlug: "austin-home-services",
+  niche: "Water Damage Restoration",
+  nicheLowercase: "water damage restoration",
+  theme: "urgent" as const,
+  hubSlug: "austin-water-damage-restoration",
 };
 
 // Services for Silo Architecture
 export const services = [
-  { slug: 'general-maintenance', name: 'General Maintenance' },
-  { slug: 'appliance-repair', name: 'Appliance Repair' },
-  { slug: 'emergency-services', name: 'Emergency Services' },
+  { slug: 'water-extraction', name: 'Water Extraction' },
+  { slug: 'flood-damage-repair', name: 'Flood Damage Repair' },
+  { slug: 'emergency-water-removal', name: 'Emergency Water Removal' },
 ];
 
 // Neighborhoods

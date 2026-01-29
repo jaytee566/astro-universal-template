@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import StickyMobileCTA from '../../components/StickyMobileCTA.astro';
 import { site } from '../../config/site';
@@ -23,54 +22,54 @@ export async function getStaticPaths() {
   // Sample services
   const services = [
     {
-      slug: 'general-maintenance',
-      name: 'General Maintenance',
-      description: 'Comprehensive maintenance services to keep your property in top condition.',
+      slug: 'water-extraction',
+      name: 'Water Extraction',
+      description: 'Emergency water removal using industrial-grade extraction equipment to prevent further damage.',
       benefits: [
-        'Prevent costly repairs',
-        'Extend equipment lifespan',
-        'Maintain property value',
-        'Peace of mind',
+        '30-minute response time',
+        'Industrial extraction equipment',
+        '24/7 emergency availability',
+        'Direct insurance billing',
       ],
       process: [
-        { step: 'Inspection', description: 'Thorough assessment of your property' },
-        { step: 'Diagnosis', description: 'Identify issues and maintenance needs' },
-        { step: 'Service', description: 'Professional maintenance work' },
-        { step: 'Verification', description: 'Quality check and documentation' },
+        { step: 'Assessment', description: 'Inspect water damage extent' },
+        { step: 'Extraction', description: 'Remove standing water immediately' },
+        { step: 'Drying', description: 'Industrial dehumidifiers and air movers' },
+        { step: 'Restoration', description: 'Complete property restoration' },
       ],
     },
     {
-      slug: 'appliance-repair',
-      name: 'Appliance Repair',
-      description: 'Expert appliance repair services for all major brands and models.',
+      slug: 'flood-damage-repair',
+      name: 'Flood Damage Repair',
+      description: 'Complete flood damage restoration including structural repairs and mold prevention.',
       benefits: [
-        'Same-day service available',
-        'All major brands serviced',
-        'Parts and labor warranty',
-        'Certified technicians',
+        'Complete structural repairs',
+        'Mold prevention treatment',
+        'Insurance claim assistance',
+        'Licensed contractors',
       ],
       process: [
-        { step: 'Diagnose', description: 'Identify the problem quickly' },
-        { step: 'Quote', description: 'Transparent pricing estimate' },
-        { step: 'Repair', description: 'Professional fix with quality parts' },
-        { step: 'Test', description: 'Verify everything works perfectly' },
+        { step: 'Inspection', description: 'Comprehensive damage assessment' },
+        { step: 'Mitigation', description: 'Stop further water damage' },
+        { step: 'Restoration', description: 'Rebuild and repair damaged areas' },
+        { step: 'Verification', description: 'Quality check and certification' },
       ],
     },
     {
-      slug: 'emergency-services',
-      name: 'Emergency Services',
-      description: 'Fast response emergency services available 24/7.',
+      slug: 'emergency-water-removal',
+      name: 'Emergency Water Removal',
+      description: 'Immediate response for burst pipes, flooding, and water emergencies 24/7.',
       benefits: [
-        '24/7 availability',
-        'Rapid response times',
-        'Experienced technicians',
-        'Minimize damage',
+        'Immediate response 24/7',
+        'Stop water damage fast',
+        'Advanced drying technology',
+        'Minimize property damage',
       ],
       process: [
-        { step: 'Call', description: 'Contact us immediately' },
-        { step: 'Dispatch', description: 'Technician en route quickly' },
-        { step: 'Stabilize', description: 'Stop damage and secure property' },
-        { step: 'Restore', description: 'Complete restoration plan' },
+        { step: 'Emergency Call', description: 'Contact us for immediate help' },
+        { step: 'Rapid Dispatch', description: 'Team arrives in 30 minutes' },
+        { step: 'Water Removal', description: 'Extract water and dry property' },
+        { step: 'Full Restoration', description: 'Complete repair and restoration' },
       ],
     },
   ];
@@ -159,7 +158,6 @@ const ctaContent = {
 
 <Layout title={pageData.metaTitle} description={pageData.metaDescription}>
   <div class="bg-white text-gray-700">
-    <Header />
 
     <!-- ==========================================
          BREADCRUMB - Shows hierarchy: Home > Silo Head > Current Page
