@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyMobileCTA from '../components/StickyMobileCTA.astro';
+import TrustBadges from '../components/TrustBadges.astro';
 import { site, services, neighborhoods } from '../config/site';
 
 // ============================================
@@ -208,35 +209,8 @@ const ctaContent = {
               </div>
             </div>
 
-            <!-- Compliance badges row -->
-            <div class="mt-2">
-              <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-600">
-                <span class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1">
-                  <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500">
-                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span>EPA Certified</span>
-                </span>
-                <span class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1">
-                  <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500">
-                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span>State Licensed</span>
-                </span>
-                <span class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1">
-                  <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500">
-                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span>$2M Insured</span>
-                </span>
-              </div>
-            </div>
+            <!-- Trust Badges -->
+            <TrustBadges />
           </div>
 
           <!-- Right Column: Process Box -->
