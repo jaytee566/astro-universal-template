@@ -22,8 +22,8 @@ export async function getStaticPaths() {
 
   // Sample services
   const services = [
-    { 
-      slug: 'general-maintenance', 
+    {
+      slug: 'general-maintenance',
       name: 'General Maintenance',
       description: 'Comprehensive maintenance services to keep your property in top condition.',
       benefits: [
@@ -39,10 +39,27 @@ export async function getStaticPaths() {
         { step: 'Verification', description: 'Quality check and documentation' },
       ],
     },
-    { 
-      slug: 'emergency-repair', 
-      name: 'Emergency Repair',
-      description: 'Fast response emergency repair services when you need help most.',
+    {
+      slug: 'appliance-repair',
+      name: 'Appliance Repair',
+      description: 'Expert appliance repair services for all major brands and models.',
+      benefits: [
+        'Same-day service available',
+        'All major brands serviced',
+        'Parts and labor warranty',
+        'Certified technicians',
+      ],
+      process: [
+        { step: 'Diagnose', description: 'Identify the problem quickly' },
+        { step: 'Quote', description: 'Transparent pricing estimate' },
+        { step: 'Repair', description: 'Professional fix with quality parts' },
+        { step: 'Test', description: 'Verify everything works perfectly' },
+      ],
+    },
+    {
+      slug: 'emergency-services',
+      name: 'Emergency Services',
+      description: 'Fast response emergency services available 24/7.',
       benefits: [
         '24/7 availability',
         'Rapid response times',
@@ -52,59 +69,8 @@ export async function getStaticPaths() {
       process: [
         { step: 'Call', description: 'Contact us immediately' },
         { step: 'Dispatch', description: 'Technician en route quickly' },
-        { step: 'Repair', description: 'Emergency fix to stop damage' },
-        { step: 'Follow-up', description: 'Complete restoration plan' },
-      ],
-    },
-    { 
-      slug: 'installation', 
-      name: 'Installation Services',
-      description: 'Professional installation services for new systems and equipment.',
-      benefits: [
-        'Expert installation',
-        'Warranty protection',
-        'Code compliance',
-        'Optimal performance',
-      ],
-      process: [
-        { step: 'Consultation', description: 'Understand your needs' },
-        { step: 'Planning', description: 'Design the installation' },
-        { step: 'Installation', description: 'Professional setup' },
-        { step: 'Testing', description: 'Verify everything works' },
-      ],
-    },
-    { 
-      slug: 'inspection', 
-      name: 'Inspection & Assessment',
-      description: 'Detailed inspections to identify issues before they become problems.',
-      benefits: [
-        'Early problem detection',
-        'Detailed reports',
-        'Expert recommendations',
-        'Budget planning',
-      ],
-      process: [
-        { step: 'Schedule', description: 'Book convenient time' },
-        { step: 'Inspect', description: 'Comprehensive evaluation' },
-        { step: 'Report', description: 'Detailed findings document' },
-        { step: 'Recommend', description: 'Action plan and estimates' },
-      ],
-    },
-    { 
-      slug: 'preventive-care', 
-      name: 'Preventive Care',
-      description: 'Regular preventive services to avoid costly repairs and emergencies.',
-      benefits: [
-        'Avoid emergencies',
-        'Lower long-term costs',
-        'Consistent performance',
-        'Extended lifespan',
-      ],
-      process: [
-        { step: 'Assess', description: 'Current condition check' },
-        { step: 'Plan', description: 'Customized care schedule' },
-        { step: 'Service', description: 'Regular maintenance visits' },
-        { step: 'Monitor', description: 'Track and adjust as needed' },
+        { step: 'Stabilize', description: 'Stop damage and secure property' },
+        { step: 'Restore', description: 'Complete restoration plan' },
       ],
     },
   ];
@@ -145,7 +111,7 @@ const pageData = {
 // ============================================
 const heroContent = {
   badge: `${service.name} Services`,
-  headline: `${service.name} in ${neighborhood.name}`,
+  headline: `${service.name} in ${neighborhood.name}, Austin`,
   subheadline: `${service.description} Serving ${neighborhood.name} and surrounding areas in ${site.city}, ${site.state}.`,
 };
 
@@ -196,20 +162,31 @@ const ctaContent = {
     <Header />
 
     <!-- ==========================================
-         BREADCRUMB - Link UP to Neighborhood ONLY (Kyle Roof)
-         Service pages can ONLY link to their parent Neighborhood
+         BREADCRUMB - Shows hierarchy: Home > Silo Head > Current Page
+         Links UP to Silo Head with exact-match anchor
          ========================================== -->
     <nav class="bg-gray-50 border-b border-gray-200">
       <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
-        <a 
-          href={`/neighborhoods/${neighborhood.slug}`}
-          class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-          <span>Back to {neighborhood.name} Services</span>
-        </a>
+        <ol class="flex items-center gap-2 text-sm">
+          <li>
+            <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors">
+              Home
+            </a>
+          </li>
+          <li class="text-gray-400">/</li>
+          <li>
+            <a
+              href={`/${service.slug}-${site.citySlug}`}
+              class="text-gray-600 hover:text-primary-600 transition-colors"
+            >
+              {service.name} Austin TX
+            </a>
+          </li>
+          <li class="text-gray-400">/</li>
+          <li class="text-gray-900 font-medium">
+            {neighborhood.name}
+          </li>
+        </ol>
       </div>
     </nav>
 
@@ -265,7 +242,7 @@ const ctaContent = {
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4">
-              <a 
+              <a
                 href={`tel:${site.phoneLink}`}
                 class="inline-flex items-center justify-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-bold px-8 py-4 rounded-xl transition-colors btn-cta text-lg"
               >
@@ -274,14 +251,14 @@ const ctaContent = {
                 </svg>
                 <span>Call {site.phone}</span>
               </a>
-              <a 
-                href={`sms:${site.phoneLink}`}
-                class="inline-flex items-center justify-center gap-2 bg-white border-2 border-gray-300 hover:border-gray-400 text-gray-700 font-bold px-8 py-4 rounded-xl transition-colors text-lg"
+              <a
+                href={`/${service.slug}-${site.citySlug}`}
+                class="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"
               >
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span>Text Us</span>
+                <span>{service.name} Austin TX</span>
               </a>
             </div>
           </div>
@@ -335,7 +312,7 @@ const ctaContent = {
 
         <!-- Benefits Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {service.benefits.map((benefit, index) => (
+          {service.benefits.map((benefit) => (
             <div class="bg-white rounded-2xl p-6 border border-gray-200 text-center hover:shadow-lg hover:border-primary-500 transition-all">
               <div class="w-14 h-14 rounded-xl bg-primary-100 flex items-center justify-center mx-auto mb-4">
                 <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -461,15 +438,26 @@ const ctaContent = {
             </div>
 
             <!-- CTA -->
-            <a 
-              href={`tel:${site.phoneLink}`}
-              class="mt-8 inline-flex items-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-bold px-8 py-4 rounded-xl transition-colors btn-cta"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              <span>Get a Free Quote</span>
-            </a>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+              <a
+                href={`tel:${site.phoneLink}`}
+                class="inline-flex items-center justify-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-bold px-8 py-4 rounded-xl transition-colors btn-cta"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>Get a Free Quote</span>
+              </a>
+              <a
+                href={`/${service.slug}-${site.citySlug}`}
+                class="inline-flex items-center justify-center gap-2 bg-white border-2 border-primary-600 text-primary-600 hover:bg-primary-50 font-bold px-8 py-4 rounded-xl transition-colors"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>{service.name} Austin TX</span>
+              </a>
+            </div>
           </div>
 
           <!-- Right: Stats Card -->
@@ -565,16 +553,27 @@ const ctaContent = {
           {ctaContent.subheadline}
         </p>
 
-        <!-- Large Phone Button -->
-        <a 
-          href={`tel:${site.phoneLink}`}
-          class="inline-flex items-center gap-3 bg-accent-600 hover:bg-accent-700 text-white font-bold text-2xl px-10 py-6 rounded-2xl transition-colors btn-cta"
-        >
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-          </svg>
-          <span>{site.phone}</span>
-        </a>
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={`tel:${site.phoneLink}`}
+            class="inline-flex items-center justify-center gap-3 bg-accent-600 hover:bg-accent-700 text-white font-bold text-2xl px-10 py-6 rounded-2xl transition-colors btn-cta"
+          >
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>{site.phone}</span>
+          </a>
+          <a
+            href={`/${service.slug}-${site.citySlug}`}
+            class="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-gray-900 font-bold text-2xl px-10 py-6 rounded-2xl transition-colors"
+          >
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>{service.name} Austin TX</span>
+          </a>
+        </div>
 
         <!-- Trust Badges -->
         <div class="flex flex-wrap justify-center gap-6 mt-8 text-gray-400">
@@ -601,8 +600,8 @@ const ctaContent = {
       </div>
     </section>
 
-    <!-- Footer - Hide Service Areas (Kyle Roof: Service can only link UP to Neighborhood) -->
-    <Footer hideServiceAreas={true} />
+    <!-- Footer -->
+    <Footer />
     
     <!-- Mobile Sticky CTA -->
     <StickyMobileCTA />

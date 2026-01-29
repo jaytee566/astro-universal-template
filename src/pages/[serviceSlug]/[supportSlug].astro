@@ -11,356 +11,155 @@ import { site } from '../../config/site';
 // Example: /general-maintenance/complete-guide
 // ============================================
 export async function getStaticPaths() {
-  // Services with their support articles
-  const services = [
+  // Standard support articles used by ALL services
+  const standardArticles = [
     {
-      slug: 'general-maintenance',
-      name: 'General Maintenance',
-      supportArticles: [
-        { 
-          slug: 'complete-guide', 
-          title: 'Complete Guide to General Maintenance',
-          description: 'Everything you need to know about keeping your property in top condition.',
-          content: [
-            {
-              heading: 'Why Regular Maintenance Matters',
-              paragraphs: [
-                'Regular maintenance is the key to protecting your property investment and avoiding costly emergency repairs. When you stay ahead of small issues, you prevent them from becoming major problems that disrupt your life and drain your wallet.',
-                'Professional maintenance goes beyond what most homeowners can do themselves. Our trained technicians have the expertise to spot early warning signs, use professional-grade tools, and apply solutions that last.',
-              ],
-            },
-            {
-              heading: 'What Does General Maintenance Include?',
-              paragraphs: [
-                'A comprehensive maintenance program covers all the critical systems in your home. This includes routine inspections, preventive treatments, cleaning, adjustments, and minor repairs that keep everything running smoothly.',
-                'The specific services depend on your property type, age, and location. We customize our approach to address the unique needs of your home while following industry best practices.',
-              ],
-            },
-            {
-              heading: 'How Often Should You Schedule Maintenance?',
-              paragraphs: [
-                'Most properties benefit from quarterly maintenance visits, with additional seasonal services as needed. However, the ideal schedule depends on factors like the age of your home, local climate conditions, and the specific systems installed.',
-                'During your initial consultation, we\'ll assess your property and recommend a maintenance schedule that provides optimal protection without unnecessary visits.',
-              ],
-            },
-            {
-              heading: 'Signs You Need Professional Maintenance',
-              paragraphs: [
-                'Don\'t wait for obvious problems to appear. If you notice unusual sounds, reduced efficiency, higher utility bills, or anything that seems "off," it\'s time to call a professional. These early warning signs often indicate issues that are easy and affordable to fix now but expensive to repair later.',
-                'Even if everything seems fine, regular professional inspections catch hidden problems that you can\'t see. Think of it like a health checkup for your home.',
-              ],
-            },
+      slug: 'complete-guide',
+      titleTemplate: 'Complete Guide to {service}',
+      descriptionTemplate: 'Everything you need to know about professional {service} services.',
+      readingTime: 6,
+      content: [
+        {
+          heading: 'Why Professional Service Matters',
+          paragraphs: [
+            'Professional service is the key to protecting your property investment and avoiding costly problems. When you work with experienced technicians, you prevent small issues from becoming major expenses that disrupt your life and drain your wallet.',
+            'Our trained experts have the expertise to spot early warning signs, use professional-grade tools, and apply solutions that last. We go beyond surface-level fixes to address root causes.',
           ],
         },
-        { 
-          slug: 'cost-factors', 
-          title: 'General Maintenance Cost Factors',
-          description: 'Understanding what affects the price of professional maintenance services.',
-          content: [
-            {
-              heading: 'What Determines Maintenance Costs?',
-              paragraphs: [
-                'The cost of professional maintenance varies based on several factors specific to your property and needs. Understanding these factors helps you budget appropriately and make informed decisions about your home care.',
-                'At our company, we believe in transparent pricing. We\'ll explain exactly what affects your quote and why, so there are never any surprises.',
-              ],
-            },
-            {
-              heading: 'Property Size and Complexity',
-              paragraphs: [
-                'Larger properties naturally require more time and resources to maintain properly. A 3,000 square foot home has more to inspect, clean, and service than a 1,500 square foot condo.',
-                'The complexity of your property also matters. Homes with multiple systems, specialty features, or challenging access points may require additional expertise and time.',
-              ],
-            },
-            {
-              heading: 'Current Condition',
-              paragraphs: [
-                'Properties that have been regularly maintained are easier and less expensive to keep in good condition. If maintenance has been deferred, the initial service may cost more to address accumulated issues.',
-                'The good news: once you\'re on a regular maintenance schedule, costs typically decrease and stabilize because we\'re preventing problems rather than fixing them.',
-              ],
-            },
-            {
-              heading: 'Getting the Best Value',
-              paragraphs: [
-                'The most cost-effective approach is preventive maintenance. Regular service costs a fraction of emergency repairs and extends the life of your home\'s systems.',
-                'We offer maintenance plans that bundle services at a discounted rate. These plans also include priority scheduling and other benefits that add value beyond the cost savings.',
-              ],
-            },
+        {
+          heading: 'What Does This Service Include?',
+          paragraphs: [
+            'A comprehensive service covers all the critical aspects of the job. This includes thorough inspections, proper preparation, quality workmanship, and attention to detail that ensures lasting results.',
+            'The specific approach depends on your property type, age, and unique conditions. We customize our service to address your specific needs while following industry best practices.',
           ],
         },
-        { 
-          slug: 'diy-vs-professional', 
-          title: 'DIY vs Professional Maintenance',
-          description: 'When to handle maintenance yourself and when to call the experts.',
-          content: [
-            {
-              heading: 'The DIY Temptation',
-              paragraphs: [
-                'With countless YouTube tutorials and home improvement shows, it\'s tempting to handle all maintenance yourself. Some tasks are indeed appropriate for handy homeowners—but others require professional expertise.',
-                'The key is knowing the difference. Getting it wrong can cost more than hiring a professional in the first place.',
-              ],
-            },
-            {
-              heading: 'Tasks Suitable for DIY',
-              paragraphs: [
-                'Simple tasks like changing air filters, cleaning gutters (if you\'re comfortable on a ladder), testing smoke detectors, and basic cleaning are generally safe for homeowners to handle.',
-                'These routine tasks don\'t require specialized tools or training, and the risk of causing damage is minimal.',
-              ],
-            },
-            {
-              heading: 'When to Call a Professional',
-              paragraphs: [
-                'Any task involving electrical systems, gas lines, structural components, or complex mechanical systems should be left to licensed professionals. The risk of injury, property damage, or code violations is simply too high.',
-                'Professional maintenance also makes sense when you lack the time, tools, or physical ability to do the job properly. A half-done maintenance task can be worse than no maintenance at all.',
-              ],
-            },
-            {
-              heading: 'The Hidden Costs of DIY',
-              paragraphs: [
-                'Consider the true cost of DIY: your time, the tools you need to buy, the risk of mistakes, and the lack of warranty coverage. When you factor everything in, professional service is often the better value.',
-                'Plus, professionals spot problems you might miss. That early detection alone can save thousands in prevented repairs.',
-              ],
-            },
+        {
+          heading: 'How to Know When You Need Service',
+          paragraphs: [
+            'Most properties benefit from proactive service rather than waiting for problems to appear. However, certain signs indicate immediate attention is needed. If you notice unusual conditions, reduced performance, or anything that seems off, it\'s time to call a professional.',
+            'Even if everything seems fine, regular professional assessment catches hidden issues before they become expensive problems. Think of it as preventive care for your property.',
+          ],
+        },
+        {
+          heading: 'What to Expect When You Call Us',
+          paragraphs: [
+            'From your first call to project completion, we make the process smooth and stress-free. We provide clear communication, arrive on time, protect your property, and complete work to the highest standards.',
+            'Our goal is your complete satisfaction. We\'re not done until you\'re thrilled with the results and confident in the quality of our work.',
           ],
         },
       ],
     },
     {
-      slug: 'emergency-repair',
-      name: 'Emergency Repair',
-      supportArticles: [
-        { 
-          slug: 'what-to-do-first', 
-          title: 'What To Do First in an Emergency',
-          description: 'Critical steps to take when disaster strikes your home.',
-          content: [
-            {
-              heading: 'Stay Calm and Assess',
-              paragraphs: [
-                'When an emergency happens, your first instinct might be to panic. Take a deep breath. A clear head helps you make better decisions and take the right actions to minimize damage.',
-                'Quickly assess the situation: Is anyone in danger? Is the problem getting worse? What can you safely do right now?',
-              ],
-            },
-            {
-              heading: 'Ensure Safety First',
-              paragraphs: [
-                'Before anything else, make sure everyone in the home is safe. If there\'s any risk of electrical shock, gas leak, or structural collapse, evacuate immediately and call emergency services.',
-                'Never put yourself in danger to protect property. Things can be replaced—you can\'t.',
-              ],
-            },
-            {
-              heading: 'Stop the Source If Safe',
-              paragraphs: [
-                'If you can safely stop or reduce the problem, do so. Know where your main water shut-off, electrical panel, and gas valve are located. These few seconds can prevent thousands in additional damage.',
-                'Don\'t attempt any repairs yourself in an emergency situation. Focus only on stopping the immediate source of damage.',
-              ],
-            },
-            {
-              heading: 'Call for Professional Help',
-              paragraphs: [
-                'Once you\'ve ensured safety and stopped what you can, call a professional immediately. The faster help arrives, the less damage occurs.',
-                'Have your address ready, describe the situation clearly, and follow any instructions the dispatcher gives you while you wait.',
-              ],
-            },
+      slug: 'cost-factors',
+      titleTemplate: '{service} Cost Factors',
+      descriptionTemplate: 'Understanding what affects the price of professional {service} services.',
+      readingTime: 5,
+      content: [
+        {
+          heading: 'What Determines Service Costs?',
+          paragraphs: [
+            'The cost of professional service varies based on several factors specific to your property and needs. Understanding these factors helps you budget appropriately and make informed decisions.',
+            'We believe in transparent pricing. We\'ll explain exactly what affects your quote and why, so there are never any surprises when the work is complete.',
           ],
         },
-        { 
-          slug: 'emergency-costs', 
-          title: 'Understanding Emergency Repair Costs',
-          description: 'What to expect when paying for emergency services.',
-          content: [
-            {
-              heading: 'Why Emergency Services Cost More',
-              paragraphs: [
-                'Emergency services typically cost more than scheduled appointments. This reflects the immediate response, after-hours availability, and the priority given to your situation.',
-                'While the higher cost might seem frustrating, remember that fast response minimizes total damage—often saving you money overall.',
-              ],
-            },
-            {
-              heading: 'Factors Affecting Emergency Costs',
-              paragraphs: [
-                'Several factors affect your final bill: the time of day (after-hours calls may have premium rates), the severity of the problem, materials needed, and the extent of repairs required.',
-                'We always provide an estimate before beginning work so you can make an informed decision.',
-              ],
-            },
-            {
-              heading: 'Insurance Considerations',
-              paragraphs: [
-                'Many emergency repairs are covered by homeowner\'s insurance. We can help document the damage and work with your insurance company to streamline the claims process.',
-                'Keep records of everything: photos, receipts, and communication with contractors and insurance adjusters.',
-              ],
-            },
-            {
-              heading: 'Preventing Future Emergencies',
-              paragraphs: [
-                'The best way to avoid emergency repair costs is prevention. Regular maintenance catches small problems before they become emergencies.',
-                'Ask us about our maintenance plans that include priority emergency service at reduced rates.',
-              ],
-            },
+        {
+          heading: 'Scope and Complexity',
+          paragraphs: [
+            'Larger or more complex projects naturally require more time, materials, and expertise. The specific conditions of your property, accessibility issues, and the extent of work needed all factor into the final cost.',
+            'During our initial assessment, we\'ll clearly explain what affects your specific situation and provide a detailed estimate before any work begins.',
           ],
         },
-        { 
-          slug: 'prevention-tips', 
-          title: 'How to Prevent Common Emergencies',
-          description: 'Proactive steps to protect your home from disaster.',
-          content: [
-            {
-              heading: 'Prevention is the Best Protection',
-              paragraphs: [
-                'Most home emergencies are preventable. With regular attention and maintenance, you can avoid the stress, expense, and disruption of emergency situations.',
-                'The investment in prevention always costs less than the emergency it prevents.',
-              ],
-            },
-            {
-              heading: 'Regular Inspections',
-              paragraphs: [
-                'Schedule professional inspections at least annually. Trained eyes catch problems you\'d never notice—small issues that become emergencies if ignored.',
-                'Between professional visits, do your own visual checks. Look for anything unusual: stains, sounds, smells, or changes in performance.',
-              ],
-            },
-            {
-              heading: 'Address Small Problems Immediately',
-              paragraphs: [
-                'That small leak or strange noise isn\'t going to fix itself. In fact, it\'s getting worse every day you ignore it.',
-                'When you notice something wrong, call a professional promptly. Early intervention is always cheaper than emergency repair.',
-              ],
-            },
-            {
-              heading: 'Know Your Home\'s Systems',
-              paragraphs: [
-                'Understand where your shut-offs are located, how old your major systems are, and what maintenance they need. This knowledge helps you prevent problems and respond quickly when they occur.',
-                'Keep documentation of all maintenance, repairs, and installations. This history helps professionals diagnose issues faster.',
-              ],
-            },
+        {
+          heading: 'Quality of Materials and Workmanship',
+          paragraphs: [
+            'We use professional-grade materials that cost more than basic alternatives but deliver superior results and longevity. The skill and experience of our technicians also adds value that budget providers can\'t match.',
+            'While you might find cheaper quotes elsewhere, the quality of our work and materials means you won\'t be calling someone else to fix problems in a few months.',
+          ],
+        },
+        {
+          heading: 'Getting the Best Value',
+          paragraphs: [
+            'The most cost-effective approach is getting it done right the first time. Quality service costs a fraction of having to redo poor workmanship or address recurring problems.',
+            'We also offer maintenance plans and service packages that bundle services at a discounted rate. These plans include additional benefits that add value beyond the cost savings.',
           ],
         },
       ],
     },
     {
-      slug: 'installation',
-      name: 'Installation Services',
-      supportArticles: [
-        { 
-          slug: 'choosing-the-right-system', 
-          title: 'Choosing the Right System for Your Home',
-          description: 'How to select equipment that fits your needs and budget.',
-          content: [
-            {
-              heading: 'Making the Right Choice',
-              paragraphs: [
-                'Selecting new equipment or systems for your home is a significant decision. The right choice provides years of reliable service; the wrong one creates ongoing frustration and expense.',
-                'We help you navigate the options to find solutions that match your needs, preferences, and budget.',
-              ],
-            },
-            {
-              heading: 'Assess Your Needs',
-              paragraphs: [
-                'Before looking at specific products, clearly define what you need. Consider your home\'s size, your family\'s usage patterns, efficiency goals, and any specific requirements.',
-                'A professional assessment ensures you don\'t over-buy features you\'ll never use or under-buy and regret it later.',
-              ],
-            },
-            {
-              heading: 'Quality vs. Price',
-              paragraphs: [
-                'The cheapest option rarely provides the best value. Quality equipment costs more upfront but delivers lower operating costs, fewer repairs, and longer life.',
-                'We\'ll show you the total cost of ownership so you can make an informed decision based on long-term value, not just purchase price.',
-              ],
-            },
-            {
-              heading: 'Professional Guidance',
-              paragraphs: [
-                'Don\'t navigate this decision alone. Our experts stay current on all the options and can recommend solutions based on real-world experience.',
-                'We\'ll explain the pros and cons of each option honestly—even if that means recommending a less expensive choice.',
-              ],
-            },
+      slug: 'diy-vs-professional',
+      titleTemplate: 'DIY vs Professional {service}',
+      descriptionTemplate: 'When to handle {service} yourself and when to call the experts.',
+      readingTime: 5,
+      content: [
+        {
+          heading: 'The DIY Temptation',
+          paragraphs: [
+            'With countless online tutorials and home improvement content, it\'s tempting to handle everything yourself. Some tasks are indeed appropriate for handy homeowners—but others require professional expertise.',
+            'The key is knowing the difference. Getting it wrong can cost more than hiring a professional in the first place, not to mention the time, frustration, and potential safety risks.',
           ],
         },
-        { 
-          slug: 'installation-process', 
-          title: 'What to Expect During Installation',
-          description: 'A step-by-step guide to professional installation.',
-          content: [
-            {
-              heading: 'Before Installation Day',
-              paragraphs: [
-                'Proper installation starts before our team arrives. We\'ll confirm all details, verify measurements, and ensure equipment is ordered and ready.',
-                'You\'ll receive clear instructions on how to prepare your space and what to expect.',
-              ],
-            },
-            {
-              heading: 'Installation Day',
-              paragraphs: [
-                'Our team arrives on time with everything needed to complete the job. We protect your home with drop cloths and take care to minimize disruption.',
-                'The installation itself follows manufacturer specifications and local codes precisely. We never cut corners.',
-              ],
-            },
-            {
-              heading: 'Quality Verification',
-              paragraphs: [
-                'Before we leave, we thoroughly test everything to ensure proper operation. We\'ll walk you through how to use and maintain your new system.',
-                'Any questions you have, we answer them before we go.',
-              ],
-            },
-            {
-              heading: 'After Installation',
-              paragraphs: [
-                'Our job isn\'t done when we leave. We follow up to make sure everything is working perfectly and you\'re completely satisfied.',
-                'We\'re always available if questions come up later. Your success with your new system is our success.',
-              ],
-            },
+        {
+          heading: 'Tasks Suitable for DIY',
+          paragraphs: [
+            'Simple, low-risk tasks that don\'t require specialized tools or expertise are generally safe for homeowners to handle. These routine maintenance items have minimal risk and don\'t typically require licensing or permitting.',
+            'However, even simple tasks benefit from professional expertise. We can complete them faster, better, and as part of a comprehensive service that addresses multiple needs at once.',
           ],
         },
-        { 
-          slug: 'warranty-coverage', 
-          title: 'Understanding Your Warranty Coverage',
-          description: 'What\'s covered, what\'s not, and how to protect your investment.',
-          content: [
-            {
-              heading: 'Types of Warranties',
-              paragraphs: [
-                'Your new equipment typically comes with multiple warranties: manufacturer warranties on parts, contractor warranties on labor, and possibly extended warranty options.',
-                'Understanding each type helps you know what\'s covered and who to call if problems arise.',
-              ],
-            },
-            {
-              heading: 'What Voids a Warranty',
-              paragraphs: [
-                'Warranties have conditions. Improper installation, lack of maintenance, unauthorized modifications, or DIY repairs can all void your coverage.',
-                'This is why professional installation and regular maintenance are so important—they protect your warranty.',
-              ],
-            },
-            {
-              heading: 'Keeping Warranty Documentation',
-              paragraphs: [
-                'Save all warranty documents, receipts, and maintenance records. If you ever need warranty service, you\'ll need to prove purchase date and show maintenance history.',
-                'We provide all documentation at installation and can help you set up a system to keep it organized.',
-              ],
-            },
-            {
-              heading: 'Extended Warranty Options',
-              paragraphs: [
-                'Extended warranties provide additional peace of mind beyond the standard coverage period. We can explain available options and help you decide if they\'re worth the investment for your situation.',
-                'For complex or expensive systems, extended coverage is often a smart choice.',
-              ],
-            },
+        {
+          heading: 'When to Call a Professional',
+          paragraphs: [
+            'Any task involving safety risks, complex systems, structural components, or code requirements should be left to licensed professionals. The risk of injury, property damage, or code violations is simply too high.',
+            'Professional service also makes sense when you lack the time, tools, or physical ability to do the job properly. A half-done job can be worse than no action at all.',
+          ],
+        },
+        {
+          heading: 'The Hidden Costs of DIY',
+          paragraphs: [
+            'Consider the true cost of DIY: your time, the tools and materials you need to buy, the learning curve, the risk of mistakes, and the lack of warranty coverage. When you factor everything in, professional service is often the better value.',
+            'Plus, professionals spot related issues you might miss. That early detection alone can save thousands in prevented problems.',
           ],
         },
       ],
     },
   ];
 
+  // Services list
+  const services = [
+    { slug: 'general-maintenance', name: 'General Maintenance' },
+    { slug: 'appliance-repair', name: 'Appliance Repair' },
+    { slug: 'emergency-services', name: 'Emergency Services' },
+  ];
+
   // Generate all support article pages
   const paths = [];
-  
+
   for (const service of services) {
-    const articles = service.supportArticles;
-    
-    for (let i = 0; i < articles.length; i++) {
-      const article = articles[i];
-      const prevArticle = i > 0 ? articles[i - 1] : null;
-      const nextArticle = i < articles.length - 1 ? articles[i + 1] : null;
-      
+    for (let i = 0; i < standardArticles.length; i++) {
+      const template = standardArticles[i];
+      const prevTemplate = i > 0 ? standardArticles[i - 1] : null;
+      const nextTemplate = i < standardArticles.length - 1 ? standardArticles[i + 1] : null;
+
+      // Generate article with service-specific content
+      const article = {
+        slug: template.slug,
+        title: template.titleTemplate.replace('{service}', service.name),
+        description: template.descriptionTemplate.replace('{service}', service.name.toLowerCase()),
+        readingTime: template.readingTime,
+        content: template.content,
+      };
+
+      const prevArticle = prevTemplate ? {
+        slug: prevTemplate.slug,
+        title: prevTemplate.titleTemplate.replace('{service}', service.name),
+      } : null;
+
+      const nextArticle = nextTemplate ? {
+        slug: nextTemplate.slug,
+        title: nextTemplate.titleTemplate.replace('{service}', service.name),
+      } : null;
+
       paths.push({
-        params: { 
+        params: {
           serviceSlug: service.slug,
           supportSlug: article.slug,
         },
@@ -370,7 +169,7 @@ export async function getStaticPaths() {
           prevArticle,
           nextArticle,
           siloOrder: i + 1,
-          totalArticles: articles.length,
+          totalArticles: standardArticles.length,
         },
       });
     }
@@ -387,8 +186,9 @@ const { service, article, prevArticle, nextArticle, siloOrder, totalArticles } =
 // ============================================
 // CRITICAL: Exact-match anchor text for linking UP to Silo Head
 // This MUST match the siloHeadAnchor in the Silo Head page
+// Format: "{Service Name} Austin TX"
 // ============================================
-const siloHeadAnchor = `${service.name} ${site.city} ${site.state}`;
+const siloHeadAnchor = `${service.name} Austin TX`;
 const siloHeadUrl = `/${service.slug}-${site.citySlug}`;
 // Example anchor: "General Maintenance Austin TX"
 // Example URL: "/general-maintenance-austin"
@@ -421,21 +221,49 @@ const ctaContent = {
     <Header />
 
     <!-- ==========================================
-         BREADCRUMB - Link UP to Silo Head with EXACT-MATCH ANCHOR
+         BREADCRUMB - Full trail with EXACT-MATCH ANCHOR to Silo Head
+         Format: Home > {Service} in Austin > Article Title
          This is CRITICAL for Kyle Roof SEO methodology
          ========================================== -->
     <nav class="bg-gray-50 border-b border-gray-200">
       <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4">
-        <a 
-          href={siloHeadUrl}
-          class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-          <!-- EXACT-MATCH ANCHOR TEXT - Critical for SEO -->
-          <span>{siloHeadAnchor}</span>
-        </a>
+        <ol class="flex flex-wrap items-center gap-2 text-sm">
+          <!-- Home -->
+          <li>
+            <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors">
+              Home
+            </a>
+          </li>
+
+          <!-- Separator -->
+          <li class="text-gray-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </li>
+
+          <!-- Silo Head - EXACT-MATCH ANCHOR TEXT -->
+          <li>
+            <a
+              href={siloHeadUrl}
+              class="text-primary-600 hover:text-primary-700 font-medium transition-colors"
+            >
+              {siloHeadAnchor}
+            </a>
+          </li>
+
+          <!-- Separator -->
+          <li class="text-gray-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </li>
+
+          <!-- Current Article -->
+          <li class="text-gray-900 font-medium">
+            {article.title}
+          </li>
+        </ol>
       </div>
     </nav>
 
@@ -467,9 +295,9 @@ const ctaContent = {
         <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
           <div class="flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span>{site.businessName}</span>
+            <span>{article.readingTime} min read</span>
           </div>
           <div class="flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

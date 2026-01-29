@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import StickyMobileCTA from '../../components/StickyMobileCTA.astro';
-import { site } from '../../config/site';
+import { site, services, neighborhoods } from '../../config/site';
 
 // ============================================
 // STATIC PATHS - Generate pages from data
@@ -44,20 +44,10 @@ export async function getStaticPaths() {
     },
   ];
 
-  // Sample services offered in each neighborhood
-  const services = [
-    { slug: 'general-maintenance', name: 'General Maintenance' },
-    { slug: 'emergency-repair', name: 'Emergency Repair' },
-    { slug: 'installation', name: 'Installation Services' },
-    { slug: 'inspection', name: 'Inspection & Assessment' },
-    { slug: 'preventive-care', name: 'Preventive Care' },
-  ];
-
   return neighborhoods.map((neighborhood) => ({
     params: { slug: neighborhood.slug },
-    props: { 
+    props: {
       neighborhood,
-      services,
     },
   }));
 }
@@ -65,7 +55,7 @@ export async function getStaticPaths() {
 // ============================================
 // PAGE PROPS
 // ============================================
-const { neighborhood, services } = Astro.props;
+const { neighborhood } = Astro.props;
 
 // ============================================
 // PAGE METADATA - Using site config interpolation
@@ -482,8 +472,8 @@ const ctaContent = {
       </div>
     </section>
 
-    <!-- Footer - Hide Service Areas to prevent lateral neighborhood links (Kyle Roof) -->
-    <Footer hideServiceAreas={true} />
+    <!-- Footer - Show neighborhoods since this is outside the silo structure -->
+    <Footer neighborhoods={neighborhoods} />
     
     <!-- Mobile Sticky CTA -->
     <StickyMobileCTA />
