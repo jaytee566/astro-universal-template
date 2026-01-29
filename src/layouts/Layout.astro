@@ -68,10 +68,22 @@ const theme = site.theme;
   :root {
     --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    /* Premium default color system */
+    --color-primary: #1e3a5a;
+    --color-primary-dark: #152a42;
+    --color-primary-light: #2d5a87;
+    --color-accent: #d4a03c;
+    --color-accent-hover: #b8862e;
+    --color-surface: #f8f6f2;
+    --hero-bg: linear-gradient(135deg, #f8f6f2 0%, #ffffff 100%);
+    --text-dark: #1a2f47;
+    --text-muted: #64748b;
   }
 
   body {
     font-family: var(--font-sans);
+    background-color: var(--color-surface);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -118,7 +130,10 @@ const theme = site.theme;
   body[data-theme="premium"] {
     --hero-bg: linear-gradient(135deg, #f8f6f2 0%, #ffffff 100%);
     --hero-text: #1a2f47;
-    --hero-subtext: #4a5568;
+    --hero-subtext: #64748b;
+    --color-surface: #f8f6f2;
+    --text-dark: #1a2f47;
+    --text-muted: #64748b;
     --color-primary-50: 240 249 255;
     --color-primary-100: 224 242 254;
     --color-primary-200: 186 230 253;
@@ -245,11 +260,11 @@ const theme = site.theme;
   }
 
   .hero-heading {
-    color: var(--hero-text);
+    color: var(--text-dark);
   }
 
   .hero-subheading {
-    color: var(--hero-subtext);
+    color: var(--text-muted);
   }
 
   /* ========================================
@@ -326,10 +341,10 @@ const theme = site.theme;
   /* ========================================
      MOBILE-FIRST PHONE LINK STYLING
      ======================================== */
-  /* Phone links in body text - green with underline */
+  /* Phone links in body text - premium gold with underline */
   p a[href^="tel:"],
   .phone-link {
-    color: #15803d;
+    color: #d4a03c;
     font-weight: 600;
     text-decoration: underline;
     transition: color 0.2s ease;
@@ -337,7 +352,7 @@ const theme = site.theme;
 
   p a[href^="tel:"]:hover,
   .phone-link:hover {
-    color: #166534;
+    color: #b8862e;
   }
 
   /* Phone buttons - no underline */
