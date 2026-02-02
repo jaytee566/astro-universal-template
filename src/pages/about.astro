@@ -66,7 +66,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 1: HERO
          ========================================== -->
-    <section class="hero-section py-12 md:py-16">
+    <section class="hero-section py-16 md:py-24">
       <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
         
         <!-- Badge -->
@@ -114,7 +114,7 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 3: OUR MISSION & VALUES
          ========================================== -->
-    <section class="py-16 md:py-20 bg-gray-50">
+    <section class="py-12 md:py-16 bg-gray-50">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
         <!-- Mission Statement -->
@@ -131,17 +131,13 @@ const ctaContent = {
         <div class="grid md:grid-cols-2 gap-8">
           {missionContent.values.map((value) => (
             <div class="bg-white rounded-2xl p-8 border border-gray-200">
-              <div class="flex items-start gap-4">
-                <div class="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-3 pt-0.5">{value.title}</h3>
-                  <p class="text-gray-600">{value.description}</p>
-                </div>
+              <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
               </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+              <p class="text-gray-600">{value.description}</p>
             </div>
           ))}
         </div>
@@ -152,24 +148,20 @@ const ctaContent = {
     <!-- ==========================================
          SECTION 4: STATS / WHY TRUST US
          ========================================== -->
-    <section class="py-16 md:py-20 bg-gray-50">
+    <section class="py-12 md:py-16 bg-white">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center">
           {statsContent.headline}
         </h2>
-        <p class="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-12">
-          Our commitment to excellence shows in every number—and every client.
-        </p>
 
-        <!-- Stats Cards -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-16">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           {statsContent.stats.map((stat) => (
-            <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm text-center hover:shadow-md hover:border-primary-200 transition-all">
-              <div class="text-3xl sm:text-4xl font-bold text-primary-600 mb-1 tracking-tight">
+            <div class="text-center">
+              <div class="text-4xl sm:text-5xl font-bold text-primary-600 mb-2">
                 {stat.number}
               </div>
-              <div class="text-sm text-gray-500 font-medium uppercase tracking-wide">
+              <div class="text-gray-600 font-medium">
                 {stat.label}
               </div>
             </div>
@@ -177,41 +169,41 @@ const ctaContent = {
         </div>
 
         <!-- Trust Badges -->
-        <div class="grid md:grid-cols-3 gap-6 items-stretch">
-          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex gap-4 hover:shadow-md hover:border-primary-200 transition-all">
-            <div class="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0 self-start">
-              <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="flex flex-wrap justify-center gap-8 mt-12 pt-12 border-t border-gray-200">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
-            <div class="min-w-0">
-              <h3 class="font-bold text-gray-900 text-lg mb-1 leading-tight">Licensed & Insured</h3>
-              <p class="text-sm text-gray-500">Full coverage in {site.state}</p>
+            <div>
+              <div class="font-bold text-gray-900">Licensed & Insured</div>
+              <div class="text-sm text-gray-500">Full coverage in {site.state}</div>
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex gap-4 hover:shadow-md hover:border-primary-200 transition-all">
-            <div class="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0 self-start">
-              <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
               </svg>
             </div>
-            <div class="min-w-0">
-              <h3 class="font-bold text-gray-900 text-lg mb-1 leading-tight">Satisfaction Guaranteed</h3>
-              <p class="text-sm text-gray-500">We stand behind our work</p>
+            <div>
+              <div class="font-bold text-gray-900">Satisfaction Guaranteed</div>
+              <div class="text-sm text-gray-500">We stand behind our work</div>
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex gap-4 hover:shadow-md hover:border-primary-200 transition-all">
-            <div class="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0 self-start">
-              <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <div class="min-w-0">
-              <h3 class="font-bold text-gray-900 text-lg mb-1 leading-tight">Locally Owned</h3>
-              <p class="text-sm text-gray-500">Proudly serving {site.city}</p>
+            <div>
+              <div class="font-bold text-gray-900">Locally Owned</div>
+              <div class="text-sm text-gray-500">Proudly serving {site.city}</div>
             </div>
           </div>
         </div>
